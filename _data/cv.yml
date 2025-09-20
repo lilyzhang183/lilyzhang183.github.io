@@ -22,13 +22,13 @@
   contents:
     - title: Master of Arts in Mathematics
       institution: Washington University in St. Louis
-      year: "Sep&nbsp;2024<br>May&nbsp;2026"
+      year: "Sep 2024--May 2026"
       description:
         - "Thesis Advisor: Prof. Xiang Tang"
         - "Thesis Topic: On Molino’s Structure Theorem: From Riemannian Foliations to Riemannian Groupoids"
     - title: Bachelor of Arts in Mathematics
       institution: Macalester College
-      year: "Sep 2019 -- Dec 2023"
+      year: "Sep 2019--Dec 2023"
       description:
         - "Capstone Advisors: Prof. Lori Ziegelmeier, Prof. Andrew Beveridge"
         - "Capstone Project: Constructing Geometrically Accurate and Topologically Correct Models of the Human Cerebral Cortex"
@@ -38,25 +38,25 @@
   contents:
     - title: Master's Thesis
       institution: Washington University in St. Louis
-      year: "May 2025 -- Present"
+      year: "May 2025--Present"
       description:
         - "Reading literature on Lie groupoids and Riemannian Lie groupoids with the aim of understanding Molino’s Structure Theorem for Riemannian foliations and exploring potential extensions."
         - "Developing preliminary notes translating the frame-bundle lift and basic foliation picture into Lie groupoid terms; assessing scope for possible generalizations."
     - title: Directed Reading — Supporting Master's Thesis
       institution: Washington University in St. Louis
-      year: "May 2025 -- Sep 2025"
+      year: "May 2025--Sep 2025"
       description:
         - "Completed a directed reading on orientations, manifold integration, de Rham cohomology, distributions/foliations, and quotient manifolds using J. M. Lee’s \\textit{Introduction to Smooth Manifolds}—material beyond the Topology II (Differential Topology) syllabus that supplies the analytic toolkit for foliation theory."
         - "Reading Moerdijk \\& Mr\\v{c}un’s \\textit{Introduction to Foliations and Lie Groupoids} to understand (i) Molino’s theory for Riemannian foliations and (ii) the Lie groupoid description of holonomy and transverse geometry."
     - title: Independent Study — K-Theory
       institution: Washington University in St. Louis
-      year: "Sep 2025 -- Present"
+      year: "Sep 2025--Present"
       description:
         - "Studying M. F. Atiyah's \\textit{K-Theory}: vector bundles and the construction of $K^0$; reduced $K$ and long exact sequences; Bott periodicity; Thom isomorphism; computations on spheres, $\\mathbb{CP}^n$, and Grassmannians; $\\lambda$-operations and Adams operations; introduction to equivariant $K$-theory."
         - "Exploring $K$-theory in noncommutative geometry (tentative)."
     - title: Directed Reading Program — Kasparov's KK-Theory
       institution: Washington University in St. Louis
-      year: "Sep 2025 -- Present"
+      year: "Sep 2025--Present"
       description:
         - "Studying Kasparov's $KK$-theory using B. Blackadar's \\textit{K-Theory for Operator Algebras}: basic theory, intersection product, further structure in $KK$-theory, and equivariant $KK$-theory."
 
@@ -85,81 +85,24 @@
       items:
         - "Canadian Mathematical Olympiad (CMO) qualifier"
 
-- title: Geometry & Topology Projects
-  type: time_table
-  contents:
-    - title: Exploratory Project — Noncommutative Algebraic Geometry
-      year: "Sep 2025 -- Present"
-      description:
-        - "Planned survey (in progress) of noncommutative algebraic geometry; tentatively exploring connections to Connes-style NCG and classical AG."
-        - "Annotated reading list in preparation (scheme-theoretic and operator-algebraic); possible short case studies time permitting."
-    - title: Guarding Orthogonal Art Galleries with Sliding Cameras
-      year: "Sep 2023 -- Dec 2023"
-      description:
-        - "MLSC on orthogonal polygons: reduced guarding to a minimum-weight vertex cover on a bipartite graph via the \\(r\\)-cut partition; for \\emph{monotone} polygons the instance is \\emph{convex} bipartite, giving an \\(O(n\\log^2 n)\\) cover routine."
-        - "For FAT/MIN-AREA grid \\(n\\)-gons on a uniform grid, established equal-length segments, yielding an \\emph{unweighted} convex bipartite instance with an \\(O(n)\\) cover step."
-    - title: Cerebral Cortex — Geometric & Topological Models
-      year: "Sep 2020 -- Dec 2020"
-      description:
-        - "Graph-based topology correction for 3D cortical volumes: slice-wise foreground/background connectivity, max-spanning-tree pruning of weak links, and minimal voxel edits iterated across axes."
-        - "Validated via Marching Cubes meshes and Euler characteristic checks ($\\chi=2$) on toy volumes and white-matter MRI masks."
-
-- title: Pure Mathematics Projects
-  type: time_table
-  contents:
-    - title: Topics in Factorial Schur Functions
-      year: "Sep 2025 -- Present"
-      description:
-        - "Survey of factorial Schur functions: definitions (ratio-of-alternants, tableaux), identities (Cauchy/dual Cauchy, Pieri-Giambelli), worked examples; annotated notes and computations (course project)."
-        - "Variations and links: six-vertex/Yang-Baxter and Tokuyama-type formulas; K-theoretic analogues—factorial $P/Q$ for Schubert classes in $T$-equivariant $K$-theory of isotropic Grassmannians, with Pfaffian and set-valued tableau formulas and the GKM/divided-difference framework."
-    - title: Understanding Burnside's Theorem
-      year: "Sep 2021 -- Dec 2021"
-      description:
-        - "Expository, character-theoretic proof of Burnside’s $p^a q^b$ theorem via Sylow theory, the class equation, column orthogonality, and algebraic-integer methods."
-        - "Proved supporting lemmas (e.g., $|\\chi(g)|\\le \\chi(1)$ and a conjugacy-class size criterion) and deduced solvability of groups of order $p^a q^b$."
-    - title: Baire Category Theorem and Its Applications
-      year: "Jan 2020 -- May 2020"
-      description:
-        - "Exposition of the Baire Category Theorem (equivalent formulations) with applications to the Uniform Boundedness Principle and the Closed Graph Theorem."
-        - "Worked examples: a generic but measure-zero set; Grothendieck’s theorem on closed subspaces of $L^p$ contained in $L^\\infty$."
-
-- title: Applied Math / Statistics Projects
-  type: time_table
-  contents:
-    - title: An Algorithmic Approach to Knapsack Problems
-      year: "Sep 2022 -- Dec 2022"
-      description:
-        - "Surveyed $0$–$1$, fractional, and MDKP; implemented DP, a scaling FPTAS, and a $1/2$-approx greedy; proved fractional greedy optimal."
-        - "Built Python benchmarks for MDKP and baselines; explored GA/local-search heuristics."
-    - title: Understanding Housing Bubble in Vancouver, BC — A Time Series Analysis
-      year: "Jan 2022 -- May 2022"
-      description:
-        - "Log-HPI (2005--2021): ADF; ACF/PACF-guided SARIMA $(2,1,0)\\times(2,0,0)_{12}$ chosen by AIC/BIC; Ljung--Box diagnostics; 12-month forecasts."
-        - "VAR(1) on $\\Delta$HPI, GDP, 10-year yield, CAD/USD, employment, earnings, CPI, crime + Bill~28 dummy; Granger tests, Cholesky IRFs, FEVD; results: HPI variance mostly self-driven; GDP predictive (95\\%); employment marginal (90\\%); CPI/yield shocks short-run; policy coefficient negative/significant."
-    - title: Cozy Home
-      year: "Jan 2022 -- May 2022"
-      description:
-        - "ODE indoor-climate model with Fourier heat loss and window air exchange; device effects via sparse $M_1,M_2$ on binary $Y$; quadratic discomfort with PD $S_i$; derived $c_{\\mathrm{opt}}=(\\sum_i S_i)^{-1}\\sum_i S_i c_{p,i}$ and $S_{\\mathrm{eff}}=\\sum_i S_i$."
-        - "Time-weighted least squares (daily/weekly/annual kernels) to estimate $c_{\\mathrm{opt}}(t)$, $S_{\\mathrm{eff}}(t)$, and conductivity $\\sigma$; implemented a thresholded control rule for device switching."
-
 - title: Teaching Experience
   type: time_table
   contents:
     - title: Grader, Department of Mathematics
       institution: Washington University in St. Louis
-      year: "Sep 2024 -- Present"
+      year: "Sep 2024--Present"
       description:
         - "Grader for MATH 5015 (Introduction to Fourier Series and Integrals, Fall 2025); MATH 415 (Partial Differential Equations, Fall 2025); MATH 309 (Matrix Algebra, Spring 2025); MATH 429 (Proof-Based Linear Algebra, Fall 2024)."
         - "Assist instructors with grading homework and exams."
     - title: Teaching Assistant, Dept. of Mathematics, Statistics & Computer Science
       institution: Macalester College
-      year: "Sep 2021 -- Dec 2021"
+      year: "Sep 2021--Dec 2021"
       description:
         - "TA for MATH 377 (Real Analysis, Fall 2021)."
         - "Graded homework and held office hours; supported 20+ students with course questions."
     - title: Junior Counselor
       institution: Ross Mathematics Program
-      year: "Jun 2020 -- Aug 2020"
+      year: "Jun 2020--Aug 2020"
       description:
         - "Participated in a 5-week intensive number theory program for pre-college students (admit rate <10\\%)."
         - "Supported instruction and graded problem sets; strengthened communication and planning through daily topic meetings."
@@ -176,12 +119,12 @@
         - "Emphasis on holonomy, vanishing cycles, Reeb components, and the role of (foliated) Morse functions."
     - title: Is Bike Throw a Real Throw? No? Yes!
       institution: "Research Talk — Boston, MA; Philadelphia, PA; Virtual"
-      year: "Feb 2022 -- Jan 2023"
+      year: "Feb 2022--Jan 2023"
       description:
         - "Presented at JMM, Boston, MA (Jan 2023); MAA MathFest, Philadelphia, PA (Aug 2022); SIMIODE EXPO, Virtual (Feb 2022)."
     - title: A Gold--Bitcoin Trading Strategy Using an LSTM-Based Method for Asset Returns Prediction
       institution: "Research Talk — Boston, MA; Philadelphia, PA"
-      year: "Aug 2022 -- Jan 2023"
+      year: "Aug 2022--Jan 2023"
       description:
         - "Presented at JMM, Boston, MA (Jan 2023); MAA MathFest, Philadelphia, PA (Aug 2022)."
 
@@ -190,13 +133,13 @@
   contents:
     - title: Secretary
       institution: Association for Women in Mathematics (WUAWM), Washington University
-      year: "Sep 2025 -- Present"
+      year: "Sep 2025--Present"
       description:
         - "Prepare agendas and minutes for Executive Council and General Body meetings; maintain membership and email lists."
         - "Manage chapter records and website in coordination with the President; assist with the annual AWM report."
     - title: Co-organizer
       institution: Szego Seminar, Washington University
-      year: "May 2025 -- Present"
+      year: "May 2025--Present"
       description:
         - "Co-organize a graduate student seminar within the Department of Mathematics."
     - title: Speaker
@@ -207,7 +150,7 @@
         - "Presented topics including continued fractions and the pigeonhole principle, with applications in math competitions."
     - title: Mentor
       institution: MSCS Mentoring Program, Macalester College
-      year: "Nov 2022 -- Dec 2023"
+      year: "Nov 2022--Dec 2023"
       description:
         - "Advised four first- and second-year mentees intending to major in MSCS on course selection and effective use of departmental resources."
         - "Facilitated engagement in departmental activities (research talks, coffee chats) and provided ongoing support for their experience in the department and daily academic life."
