@@ -25,7 +25,7 @@ ninja.data = [{
           },
         },{id: "nav-teaching",
           title: "teaching",
-          description: "Materials for courses you taught. Replace this text with your description.",
+          description: "Throughout college and graduate school, I’ve been actively engaged in teaching activities as a teaching assistant, grader, and outreach programs.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/lilyzhang183/teaching/";
