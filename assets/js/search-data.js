@@ -18,7 +18,7 @@ ninja.data = [{
           },
         },{id: "nav-cv",
           title: "cv",
-          description: "",
+          description: "This page is still under construction. Sometimes **JSON** isn’t working well. I’m not an expert with GitHub Pages. There’s a PDF version of my CV — click the PDF icon on the right. The links to my projects and notes will be updated soon… 🛠️",
           section: "Navigation",
           handler: () => {
             window.location.href = "/lilyzhang183/cv/";
