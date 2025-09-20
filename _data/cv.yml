@@ -2,96 +2,233 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
-    - name: Languages
-      value: English, German
+      value: Lily Zhang
+    - name: Department
+      value: Department of Mathematics
+    - name: Address
+      value: 1 Brookings Drive, St. Louis, MO 63130
+    - name: Email
+      value: lilyz@wustl.edu
+    - name: Website
+      value: lilyzhang.github.io
+
+- title: Research Interests
+  type: list
+  contents:
+    - "Riemannian foliations; Lie groupoids/algebroids; noncommutative geometry ($C^\\ast$-algebras; $K$- and $KK$-theory); Poisson and symplectic geometry."
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: Master of Arts in Mathematics
+      institution: Washington University in St. Louis, St. Louis, MO
+      year: "Sep 2024 -- Present (expected May 2026)"
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+        - "Thesis Advisor: Prof. Xiang Tang"
+        - "Thesis Topic: \\textit{On Molino’s Structure Theorem: From Riemannian Foliations to Riemannian Groupoids}"
+        - "Relevant Coursework: Algebraic Topology; Differential Topology; Algebraic Geometry; Differential Geometry; Topics in Geometry (Symplectic Geometry and Geometric Quantization); Topics in Algebra (Symmetric Functions); Complex Analysis I--II; Algebra I--II; Measure Theory I"
+    - title: Bachelor of Arts in Mathematics
+      institution: Macalester College, St. Paul, MN
+      year: "Sep 2019 -- Dec 2023"
       description:
-        - Description 1.
-        - Description 2.
+        - "Capstone Advisors: Prof. Lori Ziegelmeier, Prof. Andrew Beveridge"
+        - "Capstone Project: \\textit{Constructing Geometrically Accurate and Topologically Correct Models of the Human Cerebral Cortex}"
 
-- title: Experience
+- title: Research / Directed Reading
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Master's Thesis
+      institution: St. Louis, MO
+      year: "May 2025 -- Present"
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - "Reading literature on Lie groupoids and Riemannian Lie groupoids with the aim of understanding Molino’s Structure Theorem for Riemannian foliations and exploring potential extensions."
+        - "Developing preliminary notes translating the frame-bundle lift and basic foliation picture into Lie groupoid terms; assessing scope for possible generalizations."
+    - title: Directed Reading — Supporting Master's Thesis
+      institution: St. Louis, MO
+      year: "May 2025 -- Sep 2025"
       description:
-        - Description 1.
-        - Description 2.
-
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+        - "Completed a directed reading on orientations, manifold integration, de Rham cohomology, distributions/foliations, and quotient manifolds using J. M. Lee’s \\textit{Introduction to Smooth Manifolds}—material beyond the Topology II (Differential Topology) syllabus that supplies the analytic toolkit for foliation theory."
+        - "Reading Moerdijk \\& Mr\\v{c}un’s \\textit{Introduction to Foliations and Lie Groupoids} to understand (i) Molino’s theory for Riemannian foliations and (ii) the Lie groupoid description of holonomy and transverse geometry."
+    - title: Independent Study — K-Theory
+      institution: St. Louis, MO
+      year: "Sep 2025 -- Present"
       description:
+        - "Studying M. F. Atiyah's \\textit{K-Theory}: vector bundles and the construction of $K^0$; reduced $K$ and long exact sequences; Bott periodicity; Thom isomorphism; computations on spheres, $\\mathbb{CP}^n$, and Grassmannians; $\\lambda$-operations and Adams operations; introduction to equivariant $K$-theory."
+        - "Exploring $K$-theory in noncommutative geometry (tentative)."
+    - title: Directed Reading Program — Kasparov's KK-Theory
+      institution: St. Louis, MO
+      year: "Sep 2025 -- Present"
+      description:
+        - "Studying Kasparov's $KK$-theory using B. Blackadar's \\textit{K-Theory for Operator Algebras}: basic theory, intersection product, further structure in $KK$-theory, and equivariant $KK$-theory."
 
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
+- title: Honors & Awards
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - year: "May 2022"
+      items:
+        - "Finalist Award, Mathematical Contest in Modeling"
+    - year: "Nov 2021"
+      items:
+        - "Outstanding Award, SCUDEM--SIMIODE Challenge Using Differential Equations Modeling"
+    - year: "2019--2023"
+      items:
+        - "Dean's List"
+    - year: "2019"
+      items:
+        - "Charles J. Turck Presidential Honor Scholarship"
+    - year: "2018, 2019"
+      items:
+        - "USAMO qualifier"
+    - year: "2017"
+      items:
+        - "USAJMO qualifier"
+    - year: "2017--2019"
+      items:
+        - "Canadian Mathematical Olympiad (CMO) qualifier"
 
-- title: Honors and Awards
+- title: Selected Seminar Courses / Project Experience — Geometry & Topology
   type: time_table
   contents:
-    - year: 1921
-      items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
-      items:
-        - Max Planck Medal
+    - title: Exploratory Project — Noncommutative Algebraic Geometry
+      institution: "Course: MATH 5333 (Graduate Algebraic Geometry). Advisor: Prof. Matt Kerr — St. Louis, MO"
+      year: "Sep 2025 -- Present"
+      description:
+        - "Planned survey (in progress) of noncommutative algebraic geometry; tentatively exploring connections to Connes-style NCG and classical AG."
+        - "Annotated reading list in preparation (scheme-theoretic and operator-algebraic); possible short case studies time permitting."
+    - title: Guarding Orthogonal Art Galleries with Sliding Cameras
+      institution: "Course: MATH 437 (Computational Geometry). Advisor: Prof. Lori Ziegelmeier — St. Paul, MN"
+      year: "Sep 2023 -- Dec 2023"
+      description:
+        - "MLSC on orthogonal polygons: reduced guarding to a minimum-weight vertex cover on a bipartite graph via the \\(r\\)-cut partition; for \\emph{monotone} polygons the instance is \\emph{convex} bipartite, giving an \\(O(n\\log^2 n)\\) cover routine."
+        - "For FAT/MIN-AREA grid \\(n\\)-gons on a uniform grid, established equal-length segments, yielding an \\emph{unweighted} convex bipartite instance with an \\(O(n)\\) cover step."
+    - title: Cerebral Cortex — Geometric & Topological Models
+      institution: "Course: MATH 471 (Topology); Advisor: Prof. Lori Ziegelmeier — St. Paul, MN"
+      year: "Sep 2020 -- Dec 2020"
+      description:
+        - "Graph-based topology correction for 3D cortical volumes: slice-wise foreground/background connectivity, max-spanning-tree pruning of weak links, and minimal voxel edits iterated across axes."
+        - "Validated via Marching Cubes meshes and Euler characteristic checks ($\\chi=2$) on toy volumes and white-matter MRI masks."
 
-- title: Academic Interests
-  type: nested_list
+- title: Selected Seminar Courses / Project Experience — Pure Mathematics
+  type: time_table
   contents:
-    - title: Topic 1.
-      items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
-      items:
-        - Description 1.
-        - Description 2.
+    - title: Topics in Factorial Schur Functions
+      institution: "Course: MATH 5390 (Topics in Algebra). Advisor: Prof. John Shareshian — St. Louis, MO"
+      year: "Sep 2025 -- Present"
+      description:
+        - "Survey of factorial Schur functions: definitions (ratio-of-alternants, tableaux), identities (Cauchy/dual Cauchy, Pieri-Giambelli), worked examples; annotated notes and computations (course project)."
+        - "Variations and links: six-vertex/Yang-Baxter and Tokuyama-type formulas; K-theoretic analogues—factorial $P/Q$ for Schubert classes in $T$-equivariant $K$-theory of isotropic Grassmannians, with Pfaffian and set-valued tableau formulas and the GKM/divided-difference framework."
+    - title: Understanding Burnside's Theorem
+      institution: "Course: MATH 476 (Representation Theory). Advisor: Prof. Tom Halverson — St. Paul, MN"
+      year: "Sep 2021 -- Dec 2021"
+      description:
+        - "Expository, character-theoretic proof of Burnside’s $p^a q^b$ theorem via Sylow theory, the class equation, column orthogonality, and algebraic-integer methods."
+        - "Proved supporting lemmas (e.g., $|\\chi(g)|\\le \\chi(1)$ and a conjugacy-class size criterion) and deduced solvability of groups of order $p^a q^b$."
+    - title: Baire Category Theorem and Its Applications
+      institution: "Course: MATH 477 (Projects in Analysis). Advisor: Prof. Taryn Flock — St. Paul, MN"
+      year: "Jan 2020 -- May 2020"
+      description:
+        - "Exposition of the Baire Category Theorem (equivalent formulations) with applications to the Uniform Boundedness Principle and the Closed Graph Theorem."
+        - "Worked examples: a generic but measure-zero set; Grothendieck’s theorem on closed subspaces of $L^p$ contained in $L^\\infty$."
 
-- title: Other Interests
-  type: list
+- title: Selected Seminar Courses / Project Experience — Applied Math / Statistics
+  type: time_table
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - title: An Algorithmic Approach to Knapsack Problems
+      institution: "Advisor: Prof. Kristin Heysse — St. Paul, MN"
+      year: "Sep 2022 -- Dec 2022"
+      description:
+        - "Surveyed $0$–$1$, fractional, and MDKP; implemented DP, a scaling FPTAS, and a $1/2$-approx greedy; proved fractional greedy optimal."
+        - "Built Python benchmarks for MDKP and baselines; explored GA/local-search heuristics."
+    - title: Understanding Housing Bubble in Vancouver, BC — A Time Series Analysis
+      institution: "Course: STAT 452 (Correlated Data); Advisor: Prof. Brianna Heggeseth — St. Paul, MN"
+      year: "Jan 2022 -- May 2022"
+      description:
+        - "Log-HPI (2005--2021): ADF; ACF/PACF-guided SARIMA $(2,1,0)\\times(2,0,0)_{12}$ chosen by AIC/BIC; Ljung--Box diagnostics; 12-month forecasts."
+        - "VAR(1) on $\\Delta$HPI, GDP, 10-year yield, CAD/USD, employment, earnings, CPI, crime + Bill~28 dummy; Granger tests, Cholesky IRFs, FEVD; results: HPI variance mostly self-driven; GDP predictive (95\\%); employment marginal (90\\%); CPI/yield shocks short-run; policy coefficient negative/significant."
+    - title: Cozy Home
+      institution: "Course: MATH 432 (Mathematical Modeling); Advisor: Prof. Matt Zumbrum — St. Paul, MN"
+      year: "Jan 2022 -- May 2022"
+      description:
+        - "ODE indoor-climate model with Fourier heat loss and window air exchange; device effects via sparse $M_1,M_2$ on binary $Y$; quadratic discomfort with PD $S_i$; derived $c_{\\mathrm{opt}}=(\\sum_i S_i)^{-1}\\sum_i S_i c_{p,i}$ and $S_{\\mathrm{eff}}=\\sum_i S_i$."
+        - "Time-weighted least squares (daily/weekly/annual kernels) to estimate $c_{\\mathrm{opt}}(t)$, $S_{\\mathrm{eff}}(t)$, and conductivity $\\sigma$; implemented a thresholded control rule for device switching."
+
+- title: Teaching Experience
+  type: time_table
+  contents:
+    - title: Grader, Department of Mathematics
+      institution: Washington University in St. Louis, St. Louis, MO
+      year: "Sep 2024 -- Present"
+      description:
+        - "Grader for MATH 5015 (Introduction to Fourier Series and Integrals, Fall 2025); MATH 415 (Partial Differential Equations, Fall 2025); MATH 309 (Matrix Algebra, Spring 2025); MATH 429 (Proof-Based Linear Algebra, Fall 2024)."
+        - "Assist instructors with grading homework and exams."
+    - title: Teaching Assistant, Dept. of Mathematics, Statistics & Computer Science
+      institution: Macalester College, St. Paul, MN
+      year: "Sep 2021 -- Dec 2021"
+      description:
+        - "TA for MATH 377 (Real Analysis, Fall 2021)."
+        - "Graded homework and held office hours; supported 20+ students with course questions."
+    - title: Junior Counselor
+      institution: Ross Mathematics Program — Hybrid (Columbus, OH & Remote)
+      year: "Jun 2020 -- Aug 2020"
+      description:
+        - "Participated in a 5-week intensive number theory program for pre-college students (admit rate <10\\%)."
+        - "Supported instruction and graded problem sets; strengthened communication and planning through daily topic meetings."
+        - "Explored topics in number theory and probabilistic methods."
+
+- title: Contributed Talks
+  type: time_table
+  contents:
+    - title: Two Classical Theorems in Codimension-1 Foliations
+      institution: "Szeg\\H{o} Seminar, Washington University — St. Louis, MO"
+      year: "Scheduled: Oct 2025"
+      description:
+        - "Introduce and sketch proofs of Haefliger’s and Novikov’s theorems, with illustrative examples."
+        - "Emphasis on holonomy, vanishing cycles, Reeb components, and the role of (foliated) Morse functions."
+    - title: Is Bike Throw a Real Throw? No? Yes!
+      institution: "Research Talk — Boston, MA; Philadelphia, PA; Virtual"
+      year: "Feb 2022 -- Jan 2023"
+      description:
+        - "Presented at JMM, Boston, MA (Jan 2023); MAA MathFest, Philadelphia, PA (Aug 2022); SIMIODE EXPO, Virtual (Feb 2022)."
+    - title: Trading Strategy
+      institution: "Research Talk — Boston, MA; Philadelphia, PA"
+      year: "Aug 2022 -- Jan 2023"
+      description:
+        - "Original title: \\textit{A Gold--Bitcoin Trading Strategy Using an LSTM-Based Method for Asset Returns Prediction}."
+        - "Presented at JMM, Boston, MA (Jan 2023); MAA MathFest, Philadelphia, PA (Aug 2022)."
+
+- title: Community Engagement
+  type: time_table
+  contents:
+    - title: Secretary
+      institution: Association for Women in Mathematics (WUAWM), Washington University — St. Louis, MO
+      year: "Sep 2025 -- Present"
+      description:
+        - "Prepare agendas and minutes for Executive Council and General Body meetings; maintain membership and email lists."
+        - "Manage chapter records and website in coordination with the President; assist with the annual AWM report."
+    - title: Co-organizer
+      institution: Szeg\\H{o} Seminar, Washington University — St. Louis, MO
+      year: "May 2025 -- Present"
+      description:
+        - "Co-organize a graduate student seminar within the Department of Mathematics."
+    - title: Speaker
+      institution: Washington University Math Circle — St. Louis, MO
+      year: "Oct 2024, Apr 2025"
+      description:
+        - "Delivered interactive talks and led activities on problem solving for middle and high school students."
+        - "Presented topics including continued fractions and the pigeonhole principle, with applications in math competitions."
+    - title: Mentor
+      institution: MSCS Mentoring Program, Macalester College — St. Paul, MN
+      year: "Nov 2022 -- Dec 2023"
+      description:
+        - "Advised four first- and second-year mentees intending to major in MSCS on course selection and effective use of departmental resources."
+        - "Facilitated engagement in departmental activities (research talks, coffee chats) and provided ongoing support for their experience in the department and daily academic life."
+
+- title: Additional Information
+  type: map
+  contents:
+    - name: Technical
+      value: "R, Python, SageMath, Mathematica, MATLAB, \\LaTeX"
+    - name: Languages
+      value: "Mandarin (native); English (fluent); French (conversational); Japanese (conversational)"
+    - name: Professional sports
+      value: "Varsity Alpine Team (Macalester College); competed in F\\'ed\\'eration Internationale de Ski (FIS) races, representing Canada with VST (Vancouver Ski Team), winters 2022--2025; professional golfing on the Epson Tour, 2023--2024"
