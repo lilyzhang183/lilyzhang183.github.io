@@ -2,7 +2,7 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Throughout college and graduate school, I’ve been actively engaged in teaching activities as a teaching assistant, grader, and outreach programs.
+description: Throughout college and graduate school, I’ve been actively engaged in teaching activities as a teaching assistant, grader, and in outreach programs.
 nav: true
 nav_order: 6
 ---
@@ -34,9 +34,9 @@ nav_order: 6
 *St. Louis, MO · Oct 2024; Apr 2025*
 
 - Delivered interactive talks and led activities on problem solving for middle and high school students.
-- Presented topics including continued fractions and the pigeonhole principle, with applications in math competitions.
+- Presented topics including continued fractions and the pigeonhole principle, with applications in math competitions ([Math Circle archives](https://mathcircle.wustl.edu/archives/)).
 
 ##### Hidden River Middle School (formerly Ramsey Middle School) — After-School Math Tutor
 *St. Paul, MN · Sep 2021–May 2023*
 
-- Tutored \~50 students (small groups) in grades 6–8 in math courses (middle-school curriculum), homework support, and problem-solving.
+- Tutored \~50 students (small groups) in grades 6–8 in math courses (middle-school curriculum), including homework support and problem-solving.
