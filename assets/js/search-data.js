@@ -11,7 +11,7 @@ ninja.data = [{
     },
   },{id: "nav-projects",
           title: "projects",
-          description: "A growing collection of your cool projects.",
+          description: "This site is currently under construction. You can reach out to me for my previous course notes and project PDFs.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/lilyzhang183/projects/";
