@@ -29,6 +29,8 @@ latest_posts:
 
 Hi, I’m Lily Zhang—a second-year graduate student in the Department of Mathematics at [Washington University in St. Louis](https://artsci.washu.edu/). I am fortunate to be advised by Professor [Xiang Tang](https://www.math.wustl.edu/~xtang/). I broadly work in **geometry**; my interests center on **noncommutative geometry**. Lately I’m curious about when ideas from Molino’s picture for Riemannian foliations admit Lie groupoid formulations. I also enjoy studying how leaf spaces become “noncommutative spaces” via groupoids, C\*-algebras, and K-theory.
 
+Currently, I’m co-organizing (with [Hanzhang Yun](https://math.wustl.edu/people/hanzhang-yun)) the **Szegő Seminar** (graduate student seminar) at WashU. We meet 11:00 am–12:00 pm every other Friday. I’m a secretary for Washington University’s Association for Women in Mathematics ([WUAWM](https://math.wustl.edu/women-math)). I support equal opportunity.
+
 I grew up near West Lake (Hangzhou), along Huaihai West Road (Shanghai), in Outremont (Montréal, Québec), and in Kitsilano (Vancouver, BC). These beautiful neighborhoods—their **natural settings** and **architecture**—shaped how I see **structure** in the world and deepened my appreciation for **geometry**.
 
 Before WashU, I earned a B.A. in Mathematics (’23) from [Macalester College](https://www.macalester.edu/mscs/), advised by Professor [Andrew Beveridge](https://mathbeveridge.github.io/) and Professor [Lori Ziegelmeier](https://www.loriziegelmeier.com/). I explored a range of topics across pure and applied math, statistics, and data science, and kept notes on projects and research along the way. (Selected projects/notes [here](https://lilyzhang183.github.io/lilyzhang183/projects/).)
