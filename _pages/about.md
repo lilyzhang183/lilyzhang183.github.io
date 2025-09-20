@@ -35,4 +35,4 @@ Before WashU, I earned a B.A. in Mathematics (’23) from [Macalester College](h
 
 Here is my [CV](https://lilyzhang183.github.io/lilyzhang183/cv/).
 
-###### Prior to moving on to a new chapter of my life (grad school!), I was a professional alpine ski racer on the [FIS](https://www.fis-ski.com/) circuit, representing Canada with the Vancouver Ski Team. I also play golf and have competed on the [Epson Tour](https://www.epsontour.com/). I love traveling 🏔️🌊—sometimes with skis or clubs.
+Prior to moving on to a new chapter of my life (grad school!), I was a professional alpine ski racer on the [FIS](https://www.fis-ski.com/) circuit, representing Canada with the Vancouver Ski Team. I also play golf and have competed on the [Epson Tour](https://www.epsontour.com/). I love traveling 🏔️🌊—sometimes with skis or clubs.
