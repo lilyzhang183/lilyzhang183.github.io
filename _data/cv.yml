@@ -10,7 +10,7 @@
     - name: Email
       value: lilyz@wustl.edu
     - name: Website
-      value: lilyzhang.github.io
+      value: https://lilyzhang183.github.io/lilyzhang183/
 
 - title: Research Interests
   type: list
@@ -21,18 +21,18 @@
   type: time_table
   contents:
     - title: Master of Arts in Mathematics
-      institution: Washington University in St. Louis, St. Louis, MO
-      year: "Sep 2024 -- Present (expected May 2026)"
+      institution: Washington University in St. Louis
+      year: "Sep 2024 -- May 2026"
       description:
         - "Thesis Advisor: Prof. Xiang Tang"
-        - "Thesis Topic: \\textit{On Molino’s Structure Theorem: From Riemannian Foliations to Riemannian Groupoids}"
+        - "Thesis Topic: On Molino’s Structure Theorem: From Riemannian Foliations to Riemannian Groupoids"
         - "Relevant Coursework: Algebraic Topology; Differential Topology; Algebraic Geometry; Differential Geometry; Topics in Geometry (Symplectic Geometry and Geometric Quantization); Topics in Algebra (Symmetric Functions); Complex Analysis I--II; Algebra I--II; Measure Theory I"
     - title: Bachelor of Arts in Mathematics
-      institution: Macalester College, St. Paul, MN
+      institution: Macalester College
       year: "Sep 2019 -- Dec 2023"
       description:
         - "Capstone Advisors: Prof. Lori Ziegelmeier, Prof. Andrew Beveridge"
-        - "Capstone Project: \\textit{Constructing Geometrically Accurate and Topologically Correct Models of the Human Cerebral Cortex}"
+        - "Capstone Project: Constructing Geometrically Accurate and Topologically Correct Models of the Human Cerebral Cortex"
 
 - title: Research / Directed Reading
   type: time_table
@@ -86,7 +86,7 @@
       items:
         - "Canadian Mathematical Olympiad (CMO) qualifier"
 
-- title: Selected Seminar Courses / Project Experience — Geometry & Topology
+- title: Geometry & Topology Projects
   type: time_table
   contents:
     - title: Exploratory Project — Noncommutative Algebraic Geometry
@@ -108,7 +108,7 @@
         - "Graph-based topology correction for 3D cortical volumes: slice-wise foreground/background connectivity, max-spanning-tree pruning of weak links, and minimal voxel edits iterated across axes."
         - "Validated via Marching Cubes meshes and Euler characteristic checks ($\\chi=2$) on toy volumes and white-matter MRI masks."
 
-- title: Selected Seminar Courses / Project Experience — Pure Mathematics
+- title: Pure Mathematics Projects
   type: time_table
   contents:
     - title: Topics in Factorial Schur Functions
@@ -130,7 +130,7 @@
         - "Exposition of the Baire Category Theorem (equivalent formulations) with applications to the Uniform Boundedness Principle and the Closed Graph Theorem."
         - "Worked examples: a generic but measure-zero set; Grothendieck’s theorem on closed subspaces of $L^p$ contained in $L^\\infty$."
 
-- title: Selected Seminar Courses / Project Experience — Applied Math / Statistics
+- title: Applied Math / Statistics Projects
   type: time_table
   contents:
     - title: An Algorithmic Approach to Knapsack Problems
@@ -156,19 +156,19 @@
   type: time_table
   contents:
     - title: Grader, Department of Mathematics
-      institution: Washington University in St. Louis, St. Louis, MO
+      institution: Washington University in St. Louis
       year: "Sep 2024 -- Present"
       description:
         - "Grader for MATH 5015 (Introduction to Fourier Series and Integrals, Fall 2025); MATH 415 (Partial Differential Equations, Fall 2025); MATH 309 (Matrix Algebra, Spring 2025); MATH 429 (Proof-Based Linear Algebra, Fall 2024)."
         - "Assist instructors with grading homework and exams."
     - title: Teaching Assistant, Dept. of Mathematics, Statistics & Computer Science
-      institution: Macalester College, St. Paul, MN
+      institution: Macalester College
       year: "Sep 2021 -- Dec 2021"
       description:
         - "TA for MATH 377 (Real Analysis, Fall 2021)."
         - "Graded homework and held office hours; supported 20+ students with course questions."
     - title: Junior Counselor
-      institution: Ross Mathematics Program — Hybrid (Columbus, OH & Remote)
+      institution: Ross Mathematics Program
       year: "Jun 2020 -- Aug 2020"
       description:
         - "Participated in a 5-week intensive number theory program for pre-college students (admit rate <10\\%)."
@@ -179,7 +179,7 @@
   type: time_table
   contents:
     - title: Two Classical Theorems in Codimension-1 Foliations
-      institution: "Szeg\\H{o} Seminar, Washington University — St. Louis, MO"
+      institution: "Szego Seminar, Washington University"
       year: "Scheduled: Oct 2025"
       description:
         - "Introduce and sketch proofs of Haefliger’s and Novikov’s theorems, with illustrative examples."
@@ -189,35 +189,34 @@
       year: "Feb 2022 -- Jan 2023"
       description:
         - "Presented at JMM, Boston, MA (Jan 2023); MAA MathFest, Philadelphia, PA (Aug 2022); SIMIODE EXPO, Virtual (Feb 2022)."
-    - title: Trading Strategy
+    - title: A Gold--Bitcoin Trading Strategy Using an LSTM-Based Method for Asset Returns Prediction
       institution: "Research Talk — Boston, MA; Philadelphia, PA"
       year: "Aug 2022 -- Jan 2023"
       description:
-        - "Original title: \\textit{A Gold--Bitcoin Trading Strategy Using an LSTM-Based Method for Asset Returns Prediction}."
         - "Presented at JMM, Boston, MA (Jan 2023); MAA MathFest, Philadelphia, PA (Aug 2022)."
 
 - title: Community Engagement
   type: time_table
   contents:
     - title: Secretary
-      institution: Association for Women in Mathematics (WUAWM), Washington University — St. Louis, MO
+      institution: Association for Women in Mathematics (WUAWM), Washington University
       year: "Sep 2025 -- Present"
       description:
         - "Prepare agendas and minutes for Executive Council and General Body meetings; maintain membership and email lists."
         - "Manage chapter records and website in coordination with the President; assist with the annual AWM report."
     - title: Co-organizer
-      institution: Szeg\\H{o} Seminar, Washington University — St. Louis, MO
+      institution: Szego Seminar, Washington University
       year: "May 2025 -- Present"
       description:
         - "Co-organize a graduate student seminar within the Department of Mathematics."
     - title: Speaker
-      institution: Washington University Math Circle — St. Louis, MO
+      institution: Washington University Math Circle
       year: "Oct 2024, Apr 2025"
       description:
         - "Delivered interactive talks and led activities on problem solving for middle and high school students."
         - "Presented topics including continued fractions and the pigeonhole principle, with applications in math competitions."
     - title: Mentor
-      institution: MSCS Mentoring Program, Macalester College — St. Paul, MN
+      institution: MSCS Mentoring Program, Macalester College
       year: "Nov 2022 -- Dec 2023"
       description:
         - "Advised four first- and second-year mentees intending to major in MSCS on course selection and effective use of departmental resources."
@@ -227,8 +226,6 @@
   type: map
   contents:
     - name: Technical
-      value: "R, Python, SageMath, Mathematica, MATLAB, \\LaTeX"
+      value: "R, Python, SageMath, Mathematica, MATLAB, LaTeX"
     - name: Languages
       value: "Mandarin (native); English (fluent); French (conversational); Japanese (conversational)"
-    - name: Professional sports
-      value: "Varsity Alpine Team (Macalester College); competed in F\\'ed\\'eration Internationale de Ski (FIS) races, representing Canada with VST (Vancouver Ski Team), winters 2022--2025; professional golfing on the Epson Tour, 2023--2024"
