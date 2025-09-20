@@ -173,6 +173,10 @@ kramdown:
 # Includes & excludes
 include: ["_pages", "_scripts"]
 exclude:
+  - _pages/books.md        # common
+  - _pages/bookshelf.md    # some forks use this name
+  - _books/                # hides bookshelf items/collection
+  - _pages/dropdown.md
   - _posts/
   - _pages/blog.md
   # publications
