@@ -4,9 +4,8 @@
     "label": "",
     "image": "",
     "email": "lilyz@wustl.edu",
-    "url": "https://lilyzhang183.github.io/lilyzhang.github.io/",
-    "summary": "Riemannian foliations; Lie groupoids/algebroids; noncommutative geometry ($C^\\ast$-algebras; $K$- and $KK$-theory); Poisson and symplectic geometry.",
-    "researchInterests": "Riemannian foliations; Lie groupoids/algebroids; noncommutative geometry ($C^\\ast$-algebras; $K$- and $KK$-theory); Poisson and symplectic geometry.",
+    "url": "https://lilyzhang183.github.io/lilyzhang183/",
+    "interests": "Riemannian foliations; Lie groupoids/algebroids; noncommutative geometry ($C^\\ast$-algebras; $K$- and $KK$-theory); Poisson and symplectic geometry.",
     "location": {
       "address": "1 Brookings Drive, St. Louis, MO 63130",
       "city": "St. Louis",
@@ -23,7 +22,7 @@
       "area": "Mathematics",
       "studyType": "Master of Arts in Mathematics",
       "startDate": "Sep 2024",
-      "endDate": "Present (expected May 2026)",
+      "endDate": "May 2026",
       "courses": [
         "Thesis Advisor: Prof. Xiang Tang",
         "Thesis Topic: On Molino’s Structure Theorem: From Riemannian Foliations to Riemannian Groupoids",
@@ -54,7 +53,7 @@
     { "title": "Canadian Mathematical Olympiad (CMO) qualifier", "date": "2017--2019", "awarder": "", "summary": "" }
   ],
 
-  "work": [
+  "teaching experiences": [
     {
       "name": "Washington University in St. Louis",
       "location": "St. Louis, MO",
@@ -104,7 +103,7 @@
     }
   ],
 
-  "volunteer": [
+  "community service": [
     {
       "organization": "Association for Women in Mathematics (WUAWM), Washington University",
       "location": "St. Louis, MO",
