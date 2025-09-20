@@ -108,19 +108,16 @@
   type: time_table
   contents:
     - title: Topics in Factorial Schur Functions
-      institution: "Course: MATH 5390 (Topics in Algebra). Advisor: Prof. John Shareshian — St. Louis, MO"
       year: "Sep 2025 -- Present"
       description:
         - "Survey of factorial Schur functions: definitions (ratio-of-alternants, tableaux), identities (Cauchy/dual Cauchy, Pieri-Giambelli), worked examples; annotated notes and computations (course project)."
         - "Variations and links: six-vertex/Yang-Baxter and Tokuyama-type formulas; K-theoretic analogues—factorial $P/Q$ for Schubert classes in $T$-equivariant $K$-theory of isotropic Grassmannians, with Pfaffian and set-valued tableau formulas and the GKM/divided-difference framework."
     - title: Understanding Burnside's Theorem
-      institution: "Course: MATH 476 (Representation Theory). Advisor: Prof. Tom Halverson — St. Paul, MN"
       year: "Sep 2021 -- Dec 2021"
       description:
         - "Expository, character-theoretic proof of Burnside’s $p^a q^b$ theorem via Sylow theory, the class equation, column orthogonality, and algebraic-integer methods."
         - "Proved supporting lemmas (e.g., $|\\chi(g)|\\le \\chi(1)$ and a conjugacy-class size criterion) and deduced solvability of groups of order $p^a q^b$."
     - title: Baire Category Theorem and Its Applications
-      institution: "Course: MATH 477 (Projects in Analysis). Advisor: Prof. Taryn Flock — St. Paul, MN"
       year: "Jan 2020 -- May 2020"
       description:
         - "Exposition of the Baire Category Theorem (equivalent formulations) with applications to the Uniform Boundedness Principle and the Closed Graph Theorem."
@@ -130,19 +127,16 @@
   type: time_table
   contents:
     - title: An Algorithmic Approach to Knapsack Problems
-      institution: "Advisor: Prof. Kristin Heysse — St. Paul, MN"
       year: "Sep 2022 -- Dec 2022"
       description:
         - "Surveyed $0$–$1$, fractional, and MDKP; implemented DP, a scaling FPTAS, and a $1/2$-approx greedy; proved fractional greedy optimal."
         - "Built Python benchmarks for MDKP and baselines; explored GA/local-search heuristics."
     - title: Understanding Housing Bubble in Vancouver, BC — A Time Series Analysis
-      institution: "Course: STAT 452 (Correlated Data); Advisor: Prof. Brianna Heggeseth — St. Paul, MN"
       year: "Jan 2022 -- May 2022"
       description:
         - "Log-HPI (2005--2021): ADF; ACF/PACF-guided SARIMA $(2,1,0)\\times(2,0,0)_{12}$ chosen by AIC/BIC; Ljung--Box diagnostics; 12-month forecasts."
         - "VAR(1) on $\\Delta$HPI, GDP, 10-year yield, CAD/USD, employment, earnings, CPI, crime + Bill~28 dummy; Granger tests, Cholesky IRFs, FEVD; results: HPI variance mostly self-driven; GDP predictive (95\\%); employment marginal (90\\%); CPI/yield shocks short-run; policy coefficient negative/significant."
     - title: Cozy Home
-      institution: "Course: MATH 432 (Mathematical Modeling); Advisor: Prof. Matt Zumbrum — St. Paul, MN"
       year: "Jan 2022 -- May 2022"
       description:
         - "ODE indoor-climate model with Fourier heat loss and window air exchange; device effects via sparse $M_1,M_2$ on binary $Y$; quadratic discomfort with PD $S_i$; derived $c_{\\mathrm{opt}}=(\\sum_i S_i)^{-1}\\sum_i S_i c_{p,i}$ and $S_{\\mathrm{eff}}=\\sum_i S_i$."
