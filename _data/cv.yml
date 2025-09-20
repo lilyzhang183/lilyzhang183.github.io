@@ -26,7 +26,6 @@
       description:
         - "Thesis Advisor: Prof. Xiang Tang"
         - "Thesis Topic: On Molino’s Structure Theorem: From Riemannian Foliations to Riemannian Groupoids"
-        - "Relevant Coursework: Algebraic Topology; Differential Topology; Algebraic Geometry; Differential Geometry; Topics in Geometry (Symplectic Geometry and Geometric Quantization); Topics in Algebra (Symmetric Functions); Complex Analysis I--II; Algebra I--II; Measure Theory I"
     - title: Bachelor of Arts in Mathematics
       institution: Macalester College
       year: "Sep 2019 -- Dec 2023"
@@ -38,25 +37,25 @@
   type: time_table
   contents:
     - title: Master's Thesis
-      institution: St. Louis, MO
+      institution: Washington University in St. Louis
       year: "May 2025 -- Present"
       description:
         - "Reading literature on Lie groupoids and Riemannian Lie groupoids with the aim of understanding Molino’s Structure Theorem for Riemannian foliations and exploring potential extensions."
         - "Developing preliminary notes translating the frame-bundle lift and basic foliation picture into Lie groupoid terms; assessing scope for possible generalizations."
     - title: Directed Reading — Supporting Master's Thesis
-      institution: St. Louis, MO
+      institution: Washington University in St. Louis
       year: "May 2025 -- Sep 2025"
       description:
         - "Completed a directed reading on orientations, manifold integration, de Rham cohomology, distributions/foliations, and quotient manifolds using J. M. Lee’s \\textit{Introduction to Smooth Manifolds}—material beyond the Topology II (Differential Topology) syllabus that supplies the analytic toolkit for foliation theory."
         - "Reading Moerdijk \\& Mr\\v{c}un’s \\textit{Introduction to Foliations and Lie Groupoids} to understand (i) Molino’s theory for Riemannian foliations and (ii) the Lie groupoid description of holonomy and transverse geometry."
     - title: Independent Study — K-Theory
-      institution: St. Louis, MO
+      institution: Washington University in St. Louis
       year: "Sep 2025 -- Present"
       description:
         - "Studying M. F. Atiyah's \\textit{K-Theory}: vector bundles and the construction of $K^0$; reduced $K$ and long exact sequences; Bott periodicity; Thom isomorphism; computations on spheres, $\\mathbb{CP}^n$, and Grassmannians; $\\lambda$-operations and Adams operations; introduction to equivariant $K$-theory."
         - "Exploring $K$-theory in noncommutative geometry (tentative)."
     - title: Directed Reading Program — Kasparov's KK-Theory
-      institution: St. Louis, MO
+      institution: Washington University in St. Louis
       year: "Sep 2025 -- Present"
       description:
         - "Studying Kasparov's $KK$-theory using B. Blackadar's \\textit{K-Theory for Operator Algebras}: basic theory, intersection product, further structure in $KK$-theory, and equivariant $KK$-theory."
@@ -90,19 +89,16 @@
   type: time_table
   contents:
     - title: Exploratory Project — Noncommutative Algebraic Geometry
-      institution: "Course: MATH 5333 (Graduate Algebraic Geometry). Advisor: Prof. Matt Kerr — St. Louis, MO"
       year: "Sep 2025 -- Present"
       description:
         - "Planned survey (in progress) of noncommutative algebraic geometry; tentatively exploring connections to Connes-style NCG and classical AG."
         - "Annotated reading list in preparation (scheme-theoretic and operator-algebraic); possible short case studies time permitting."
     - title: Guarding Orthogonal Art Galleries with Sliding Cameras
-      institution: "Course: MATH 437 (Computational Geometry). Advisor: Prof. Lori Ziegelmeier — St. Paul, MN"
       year: "Sep 2023 -- Dec 2023"
       description:
         - "MLSC on orthogonal polygons: reduced guarding to a minimum-weight vertex cover on a bipartite graph via the \\(r\\)-cut partition; for \\emph{monotone} polygons the instance is \\emph{convex} bipartite, giving an \\(O(n\\log^2 n)\\) cover routine."
         - "For FAT/MIN-AREA grid \\(n\\)-gons on a uniform grid, established equal-length segments, yielding an \\emph{unweighted} convex bipartite instance with an \\(O(n)\\) cover step."
     - title: Cerebral Cortex — Geometric & Topological Models
-      institution: "Course: MATH 471 (Topology); Advisor: Prof. Lori Ziegelmeier — St. Paul, MN"
       year: "Sep 2020 -- Dec 2020"
       description:
         - "Graph-based topology correction for 3D cortical volumes: slice-wise foreground/background connectivity, max-spanning-tree pruning of weak links, and minimal voxel edits iterated across axes."
