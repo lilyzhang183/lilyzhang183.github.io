@@ -120,7 +120,7 @@
       ]
     },
     {
-      "organization": "Szeg\\H{o} Seminar, Washington University",
+      "organization": "Szego Seminar, Washington University",
       "location": "St. Louis, MO",
       "position": "Co-organizer",
       "startDate": "May 2025",
@@ -164,7 +164,7 @@
     }
   ],
 
-  "projects": [
+  "research, projects, and talks": [
     {
       "name": "Master's Thesis",
       "location": "St. Louis, MO",
@@ -372,7 +372,7 @@
       "location": "St. Louis, MO",
       "startDate": "Oct 2025",
       "endDate": "Oct 2025",
-      "summary": "Szeg\\H{o} Seminar, Washington University",
+      "summary": "Szego Seminar, Washington University",
       "highlights": [
         "Introduce and sketch proofs of Haefliger’s and Novikov’s theorems, with illustrative examples.",
         "Emphasis on holonomy, vanishing cycles, Reeb components, and the role of (foliated) Morse functions."
@@ -396,17 +396,15 @@
       ]
     },
     {
-      "name": "Contributed Talk — Trading Strategy",
+      "name": "Contributed Talk — A Gold--Bitcoin Trading Strategy Using an LSTM-Based Method for Asset Returns Prediction",
       "location": "Boston, MA; Philadelphia, PA",
       "startDate": "Aug 2022",
       "endDate": "Jan 2023",
       "summary": "Research Talk",
       "highlights": [
-        "Original title: \\textit{A Gold--Bitcoin Trading Strategy Using an LSTM-Based Method for Asset Returns Prediction}.",
         "Presented at JMM, Boston, MA (Jan 2023); MAA MathFest, Philadelphia, PA (Aug 2022)."
       ],
       "description": [
-        "Original title: \\textit{A Gold--Bitcoin Trading Strategy Using an LSTM-Based Method for Asset Returns Prediction}.",
         "Presented at JMM, Boston, MA (Jan 2023); MAA MathFest, Philadelphia, PA (Aug 2022)."
       ]
     }
@@ -415,7 +413,7 @@
   "skills": [
     {
       "name": "Technical",
-      "keywords": ["R", "Python", "SageMath", "Mathematica", "MATLAB", "\\LaTeX"]
+      "keywords": ["R", "Python", "SageMath", "Mathematica", "MATLAB", "LaTeX"]
     }
   ],
 
@@ -426,12 +424,4 @@
     { "language": "Japanese", "fluency": "conversational" }
   ],
 
-  "interests": [
-    {
-      "name": "Professional sports",
-      "keywords": [
-        "Varsity Alpine Team (Macalester College); competed in F\\'ed\\'eration Internationale de Ski (FIS) races, representing Canada with VST (Vancouver Ski Team), winters 2022--2025; professional golfing on the Epson Tour, 2023--2024"
-      ]
-    }
-  ]
 }
