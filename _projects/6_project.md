@@ -7,7 +7,7 @@ description: >-
   greedy proved optimal). Python benchmarks for MDKP and baselines; GA and local-
   search heuristics explored.
 img:
-importance: 4
+importance: 3
 category: fun
 ---
 
