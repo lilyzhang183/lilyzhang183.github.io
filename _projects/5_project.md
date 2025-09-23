@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Understanding Housing Bubble in Vancouver, BC: A Time Series Analysis
+title: Understanding Housing Bubble in Vancouver, BC
 description: >
-Δlog HPI (2005–2021): ADF; SARIMA (2,1,0)×(2,0,0)12 via AIC/BIC; Ljung–Box; 12-month forecasts. VAR(1) on first differences of HPI, GDP, 10-yr yield, CAD/USD, employment, earnings, CPI, crime with Bill-28 dummy; Granger, Cholesky IRFs, FEVD. Results: HPI variance mostly self-driven; GDP predictive (95%); employment marginal (90%); CPI/yield shocks short-run; policy coefficient negative/significant.
-img: assets/img/1.jpg
+  Δlog HPI (2005–2021): ADF; SARIMA (2,1,0)×(2,0,0)_12 via AIC/BIC; Ljung–Box; 12-month forecasts. VAR(1) on first differences of HPI, GDP, 10-yr yield, CAD/USD, employment, earnings, CPI, crime + Bill-28 dummy; Granger, Cholesky IRFs, FEVD. Results: HPI variance mostly self-driven; GDP predictive (95%); employment marginal (90%); CPI/yield short-run; policy coefficient negative/significant.
+img:
 importance: 3
 category: fun
 ---
