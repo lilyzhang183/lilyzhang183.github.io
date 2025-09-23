@@ -78,9 +78,9 @@ ninja.data = [{
           description: "a project that redirects to another website",
           section: "Projects",handler: () => {
               window.location.href = "/lilyzhang183/projects/3_project/";
-            },},{id: "projects-project-4",
-          title: 'project 4',
-          description: "another without an image",
+            },},{id: "projects-cozy-home",
+          title: 'Cozy Home',
+          description: "ODE indoor-climate model with Fourier heat loss and window air exchange; device effects via sparse M1, M2 on binary Y; quadratic discomfort with PD S_i; derived c_opt = (Σ S_i)^(-1) Σ S_i c_{p,i} and S_eff = Σ S_i. Time-weighted least squares (daily/weekly/annual kernels) to estimate c_opt(t), S_eff(t), and conductivity σ; thresholded control rule for device switching.",
           section: "Projects",handler: () => {
               window.location.href = "/lilyzhang183/projects/4_project/";
             },},{id: "projects-project-5",
