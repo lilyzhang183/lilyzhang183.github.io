@@ -88,9 +88,9 @@ ninja.data = [{
           description: "Δlog HPI (2005–2021): ADF; SARIMA (2,1,0)×(2,0,0)_12 via AIC/BIC; Ljung–Box; 12-month forecasts. VAR(1) on first differences of HPI, GDP, 10-yr yield, CAD/USD, employment, earnings, CPI, crime + Bill-28 dummy; Granger, Cholesky IRFs, FEVD. Results: HPI variance mostly self-driven; GDP predictive (95%); employment marginal (90%); CPI/yield short-run; policy coefficient negative/significant.",
           section: "Projects",handler: () => {
               window.location.href = "/lilyzhang183/projects/5_project/";
-            },},{id: "projects-an-algorithmic-approach-to-knapsack-problems",
-          title: 'An Algorithmic Approach to Knapsack Problems',
-          description: "Survey of 0-1, fractional, and multi-dimensional knapsack; implementations of dynamic programming, a scaling FPTAS, and a 1/2-approximate greedy (fractional greedy proved optimal). Python benchmarks for MDKP and baselines; GA and local- search heuristics explored.",
+            },},{id: "projects-project-6",
+          title: 'project 6',
+          description: "a project with no image",
           section: "Projects",handler: () => {
               window.location.href = "/lilyzhang183/projects/6_project/";
             },},{id: "projects-understanding-burnside-39-s-theorem",
