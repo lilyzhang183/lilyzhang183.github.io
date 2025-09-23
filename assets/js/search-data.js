@@ -83,9 +83,9 @@ ninja.data = [{
           description: "ODE indoor-climate model with Fourier heat loss and window air exchange; device effects via sparse M1, M2 on binary Y; quadratic discomfort with SPD S_i; derived c_opt = (Σ S_i)^(-1) Σ S_i c_{pi} and S_eff = Σ S_i. Time-weighted least squares (daily/weekly/annual kernels) to estimate c_opt(t) and the exchange-rate matrix σ; S_eff configured (SPD). Implemented a thresholded control rule for device switching.",
           section: "Projects",handler: () => {
               window.location.href = "/lilyzhang183/projects/4_project/";
-            },},{id: "projects-",
-          title: '',
-          description: "",
+            },},{id: "projects-understanding-housing-bubble-in-vancouver-bc",
+          title: 'Understanding Housing Bubble in Vancouver, BC',
+          description: "Δlog HPI (2005–2021): ADF; SARIMA (2,1,0)×(2,0,0)_12 via AIC/BIC; Ljung–Box; 12-month forecasts. VAR(1) on first differences of HPI, GDP, 10-yr yield, CAD/USD, employment, earnings, CPI, crime + Bill-28 dummy; Granger, Cholesky IRFs, FEVD. Results: HPI variance mostly self-driven; GDP predictive (95%); employment marginal (90%); CPI/yield short-run; policy coefficient negative/significant.",
           section: "Projects",handler: () => {
               window.location.href = "/lilyzhang183/projects/5_project/";
             },},{id: "projects-project-6",
