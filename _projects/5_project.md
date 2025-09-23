@@ -1,80 +1,45 @@
 ---
 layout: page
-title: project 5
-description: a project with a background image
+title: Understanding Housing Bubble in Vancouver, BC: A Time Series Analysis
+description: >
+Δlog HPI (2005–2021): ADF; SARIMA (2,1,0)×(2,0,0)12 via AIC/BIC; Ljung–Box; 12-month forecasts. VAR(1) on first differences of HPI, GDP, 10-yr yield, CAD/USD, employment, earnings, CPI, crime with Bill-28 dummy; Granger, Cholesky IRFs, FEVD. Results: HPI variance mostly self-driven; GDP predictive (95%); employment marginal (90%); CPI/yield shocks short-run; policy coefficient negative/significant.
 img: assets/img/1.jpg
 importance: 3
 category: fun
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+### Overview
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+- **Univariate modeling (HPI growth, 2005–2021):**
+  - ADF stationarity tests on $\Delta\log(\mathrm{HPI})$.
+  - ACF/PACF-guided SARIMA $(2,1,0)\times(2,0,0)_{12}$ chosen by AIC/BIC.
+  - Ljung–Box diagnostics; 12-month out-of-sample forecasts.
+- **Multivariate dynamics (VAR(1) in first differences):**
+  - Variables: HPI, GDP, 10-year yield, CAD/USD, employment, earnings, CPI, crime;
+    exogenous Bill 28 policy dummy.
+  - Granger causality, Cholesky IRFs, and FEVD.
+  - Findings: HPI variance mostly self-driven; GDP predictive (95%); employment marginal (90%);
+    CPI/yield shocks are short-run; policy coefficient negative and significant.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+<p class="mt-3 mb-2">
+  <a class="btn btn-sm btn-outline-primary"
+     href="{{ '/assets/452.pdf' | relative_url }}"
+     target="_blank" rel="noopener">
+    View PDF
+  </a>
+  <a class="btn btn-sm btn-outline-secondary"
+     href="{{ '/assets/452.pdf' | relative_url }}"
+     download>
+    Download
+  </a>
+</p>
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+<!-- Embedded PDF (falls back to the links above if the browser can't embed PDFs) -->
+<object data="{{ '/assets/452.pdf' | relative_url }}"
+        type="application/pdf" width="100%" style="height:70vh">
+  <p>
+    PDF viewer unavailable.
+    <a href="{{ '/assets/452.pdf' | relative_url }}">Open the PDF</a>.
+  </p>
+</object>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
-
-{% endraw %}
