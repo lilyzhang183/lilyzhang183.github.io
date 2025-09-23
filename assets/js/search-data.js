@@ -65,7 +65,7 @@ ninja.data = [{
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
-          description: "with background image",
+          description: "Exposition of the Baire Category Theorem (equivalent formulations) with applications to the Uniform Boundedness Principle and the Closed Graph Theorem; worked examples include a generic-but-measure-zero set and Grothendieck’s theorem (closed subspaces of L^p contained in L^\infty on finite-measure spaces are finite-dimensional).",
           section: "Projects",handler: () => {
               window.location.href = "/lilyzhang183/projects/1_project/";
             },},{id: "projects-project-2",
