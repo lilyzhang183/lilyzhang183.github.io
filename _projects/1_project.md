@@ -1,6 +1,6 @@
 ---
 layout: page
-title: project 1
+title: Baire Category Theorem and Its Applications
 description: >
   Exposition of the Baire Category Theorem (equivalent formulations) with
   applications to the Uniform Boundedness Principle and the Closed Graph
