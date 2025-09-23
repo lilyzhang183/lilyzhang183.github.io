@@ -16,8 +16,8 @@ related_publications: true
 - Expository, character-theoretic proof of Burnside’s $p^a q^b$ theorem via:
   Sylow theory, the class equation, column orthogonality relations, and
   algebraic-integer methods.
-- Proved supporting lemmas (e.g., $|\chi(g)|\le \chi(1)$ and a conjugacy-class
-  size criterion) and deduced solvability of groups with $|G|=p^a q^b$.
+- Proved supporting lemmas (e.g., $|\chi(g)|\leq \chi(1)$ and a conjugacy-class
+  size criterion) and deduced solvability of groups with $|G|=p^aq^b$.
 
 <p class="mt-3 mb-2">
   <a class="btn btn-sm btn-outline-primary"
