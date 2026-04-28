@@ -8,6 +8,6 @@ nav_order: 3
 
 My main interests are noncommutative geometry and Poisson geometry.
 
-More specifically, I'm interested in higher index theory, especially those related to K-theory, operator algebras, large-scale geometry, etc. On the Poisson geometry side, I'm interested in Lie groupoids, Lie algebroids, singular foliations, etc.
+On the *noncommutative geometry* side, I am interested in higher index theory and its interactions with K-theory, KK-theory, operator algebras, large-scale geometry, the coarse Baum–Connes conjecture, etc. On the *Poisson geometry* side, I am interested in Lie groupoids, Lie algebroids, singular foliations, and related higher structures.
 
 Sometimes they overlap.
