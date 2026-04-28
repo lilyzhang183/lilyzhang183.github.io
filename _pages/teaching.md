@@ -6,8 +6,6 @@ nav: true
 nav_order: 6
 ---
 
-#### Teaching Experience
-
 ##### Washington University in St. Louis, Department of Mathematics
 
 - **Grader** MATH 5015 - Introduction to Fourier Series and Integrals, Fall 2025
