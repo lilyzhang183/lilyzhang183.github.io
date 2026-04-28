@@ -27,14 +27,6 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi, I’m Lily Zhang—a second-year graduate student in the Department of Mathematics at [Washington University in St. Louis](https://artsci.washu.edu/). I am fortunate to be advised by Professor [Xiang Tang](https://www.math.wustl.edu/~xtang/). I broadly work in **geometry**; my interests center on **noncommutative geometry**.
+Hi, I'm Lily Zhang. I'm a PhD student in Mathematics at Texas A&M University, [Department of Mathematics](https://artsci.tamu.edu/mathematics/index.html), under the supervision of Professor [Guoliang Yu](https://artsci.tamu.edu/mathematics/contact/profiles/guoliang-yu.html). I'm interested in noncommutative geometry and Poisson geometry.
 
-Currently, I’m co-organizing (with [Hanzhang Yun](https://math.wustl.edu/people/hanzhang-yun)) the **Szegő Seminar** (graduate student seminar) at WashU. We meet 11:00 am–12:00 pm every other Friday. I’m a secretary for Washington University’s Association for Women in Mathematics ([WUAWM](https://math.wustl.edu/women-math)). I support equal opportunity.
-
-I grew up near West Lake (Hangzhou), along Huaihai West Road (Shanghai), in Outremont (Montréal, Québec), and in Kitsilano (Vancouver, BC). These beautiful neighborhoods—their **natural settings** and **architecture**—shaped how I see **structure** in the world and deepened my appreciation for **geometry**.
-
-Before WashU, I earned a B.A. in Mathematics (’23) from [Macalester College](https://www.macalester.edu/mscs/), advised by Professor [Andrew Beveridge](https://mathbeveridge.github.io/) and Professor [Lori Ziegelmeier](https://www.loriziegelmeier.com/). I explored a range of topics across pure and applied math, statistics, and data science, and kept notes on projects and research along the way. (Selected projects/notes [here](https://lilyzhang183.github.io/lilyzhang183/projects/).)
-
-Here is my [CV](https://lilyzhang183.github.io/lilyzhang183/cv/).
-
-Prior to moving on to a new chapter of my life (grad school!), I was a professional alpine ski racer on the [FIS](https://www.fis-ski.com/) circuit, representing Canada with the Vancouver Ski Team. I also play golf and have competed on the [Epson Tour](https://www.epsontour.com/). I love traveling 🏔️🌊—sometimes with skis or clubs.
+I earned my master's degree in mathematics from the Department of Mathematics at [Washington University in St. Louis](https://artsci.washu.edu/), where I was fortunate to be advised by Professor [Xiang Tang](https://www.math.wustl.edu/~xtang/). My thesis was *A Generalization of Molino's Theory to Riemannian Groupoids*.
