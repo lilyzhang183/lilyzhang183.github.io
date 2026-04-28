@@ -28,7 +28,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi, I'm Lily Zhang. I'm a PhD student in Mathematics at Texas A&M University, under the supervision of Professor [Guoliang Yu](https://artsci.tamu.edu/mathematics/contact/profiles/guoliang-yu.html).
+I'm a PhD student in Mathematics at Texas A&M University, under the supervision of Professor [Guoliang Yu](https://artsci.tamu.edu/mathematics/contact/profiles/guoliang-yu.html).
 
 I earned my master's degree in mathematics from the Department of Mathematics at [Washington University in St. Louis](https://artsci.washu.edu/), where I was fortunate to be advised by Professor [Xiang Tang](https://www.math.wustl.edu/~xtang/). My thesis was *A Generalization of Molino's Theory to Riemannian Groupoids*.
 
