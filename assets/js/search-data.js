@@ -25,10 +25,17 @@ ninja.data = [{
           },
         },{id: "nav-teaching",
           title: "teaching",
-          description: "Throughout college and graduate school, I’ve been actively engaged in teaching activities as a teaching assistant, grader, and in outreach programs.",
+          description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/lilyzhang183/teaching/";
+          },
+        },{id: "nav-service",
+          title: "service",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/lilyzhang183/service/";
           },
         },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
         
