@@ -30,6 +30,6 @@ latest_posts:
 
 I'm a PhD student in Mathematics at Texas A&M University, under the supervision of Professor [Guoliang Yu](https://artsci.tamu.edu/mathematics/contact/profiles/guoliang-yu.html).
 
-I earned my master's degree in mathematics from the Department of Mathematics at [Washington University in St. Louis](https://artsci.washu.edu/), where I was fortunate to be advised by Professor [Xiang Tang](https://www.math.wustl.edu/~xtang/). My thesis was *A Generalization of Molino's Theory to Riemannian Groupoids*.
+I earned my master's degree in mathematics from the Department of Mathematics at [Washington University in St. Louis](https://artsci.washu.edu/), where I was fortunate to be advised by Professor [Xiang Tang](https://www.math.wustl.edu/~xtang/). My thesis was [*A Generalization of Molino's Theory to Riemannian Groupoids*]({{ '/assets/A%20Generalization%20of%20Molinos%20Theory%20to%20Riemannian%20Groupoids.pdf' | relative_url }}).
 
 I'm interested in noncommutative geometry and Poisson geometry.
