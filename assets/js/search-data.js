@@ -7,35 +7,35 @@ ninja.data = [{
     title: "about",
     section: "Navigation",
     handler: () => {
-      window.location.href = "/lilyzhang183/";
+      window.location.href = "/";
     },
   },{id: "nav-research",
           title: "research",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/lilyzhang183/research/";
+            window.location.href = "/research/";
           },
         },{id: "nav-cv",
           title: "cv",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/lilyzhang183/cv/";
+            window.location.href = "/cv/";
           },
         },{id: "nav-teaching",
           title: "teaching",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/lilyzhang183/teaching/";
+            window.location.href = "/teaching/";
           },
         },{id: "nav-service",
           title: "service",
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/lilyzhang183/service/";
+            window.location.href = "/service/";
           },
         },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
         
@@ -66,7 +66,7 @@ ninja.data = [{
           title: 'A long announcement with details',
           description: "",
           section: "News",handler: () => {
-              window.location.href = "/lilyzhang183/news/announcement_2/";
+              window.location.href = "/news/announcement_2/";
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
@@ -74,47 +74,47 @@ ninja.data = [{
           title: 'Baire Category Theorem and Its Applications',
           description: "Exposition of the Baire Category Theorem (equivalent formulations) with applications to the Uniform Boundedness Principle and the Closed Graph Theorem; worked examples include a generic-but-measure-zero set and Grothendieck’s theorem (closed subspaces of L^p contained in L^\infty on finite-measure spaces are finite-dimensional).",
           section: "Projects",handler: () => {
-              window.location.href = "/lilyzhang183/projects/1_project/";
+              window.location.href = "/projects/1_project/";
             },},{id: "projects-real-analysis-notes",
           title: 'Real Analysis Notes',
           description: "Notes from my first college math course (Fall 2019). Typeset with my self-designed LaTeX template.",
           section: "Projects",handler: () => {
-              window.location.href = "/lilyzhang183/projects/2_project/";
+              window.location.href = "/projects/2_project/";
             },},{id: "projects-project-3-with-very-long-name",
           title: 'project 3 with very long name',
           description: "a project that redirects to another website",
           section: "Projects",handler: () => {
-              window.location.href = "/lilyzhang183/projects/3_project/";
+              window.location.href = "/projects/3_project/";
             },},{id: "projects-cozy-home",
           title: 'Cozy Home',
           description: "ODE indoor-climate model with Fourier heat loss and window air exchange; device effects via sparse M1, M2 on binary Y; quadratic discomfort with SPD S_i; derived c_opt = (Σ S_i)^(-1) Σ S_i c_{pi} and S_eff = Σ S_i. Time-weighted least squares (daily/weekly/annual kernels) to estimate c_opt(t) and the exchange-rate matrix σ; S_eff configured (SPD). Implemented a thresholded control rule for device switching.",
           section: "Projects",handler: () => {
-              window.location.href = "/lilyzhang183/projects/4_project/";
+              window.location.href = "/projects/4_project/";
             },},{id: "projects-understanding-housing-bubble-in-vancouver-bc",
           title: 'Understanding Housing Bubble in Vancouver, BC',
           description: "Δlog HPI (2005–2021): ADF; SARIMA (2,1,0)×(2,0,0)_12 via AIC/BIC; Ljung–Box; 12-month forecasts. VAR(1) on first differences of HPI, GDP, 10-yr yield, CAD/USD, employment, earnings, CPI, crime + Bill-28 dummy; Granger, Cholesky IRFs, FEVD. Results: HPI variance mostly self-driven; GDP predictive (95%); employment marginal (90%); CPI/yield short-run; policy coefficient negative/significant.",
           section: "Projects",handler: () => {
-              window.location.href = "/lilyzhang183/projects/5_project/";
+              window.location.href = "/projects/5_project/";
             },},{id: "projects-an-algorithmic-approach-to-knapsack-problems",
           title: 'An Algorithmic Approach to Knapsack Problems',
           description: "Survey of 0-1, fractional, and multi-dimensional knapsack; implementations of dynamic programming, a scaling FPTAS, and a 1/2-approximate greedy (fractional greedy proved optimal). Python benchmarks for MDKP and baselines; GA and local- search heuristics explored.",
           section: "Projects",handler: () => {
-              window.location.href = "/lilyzhang183/projects/6_project/";
+              window.location.href = "/projects/6_project/";
             },},{id: "projects-understanding-burnside-39-s-theorem",
           title: 'Understanding Burnside&amp;#39;s Theorem',
           description: "Expository, character-theoretic proof of Burnside&#39;s p^a q^b solvability theorem via Sylow theory, the class equation, column orthogonality, and algebraic-integer methods; key lemmas (|χ(g)| ≤ χ(1), conjugacy-class size criterion).",
           section: "Projects",handler: () => {
-              window.location.href = "/lilyzhang183/projects/7_project/";
+              window.location.href = "/projects/7_project/";
             },},{id: "projects-project-8",
           title: 'project 8',
           description: "an other project with a background image and giscus comments",
           section: "Projects",handler: () => {
-              window.location.href = "/lilyzhang183/projects/8_project/";
+              window.location.href = "/projects/8_project/";
             },},{id: "projects-project-9",
           title: 'project 9',
           description: "another project with an image 🎉",
           section: "Projects",handler: () => {
-              window.location.href = "/lilyzhang183/projects/9_project/";
+              window.location.href = "/projects/9_project/";
             },},{
         id: 'social-email',
         title: 'email',
@@ -134,7 +134,7 @@ ninja.data = [{
         title: 'RSS Feed',
         section: 'Socials',
         handler: () => {
-          window.open("/lilyzhang183/feed.xml", "_blank");
+          window.open("/feed.xml", "_blank");
         },
       },{
         id: 'social-scholar',

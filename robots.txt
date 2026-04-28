@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://lilyzhang183.github.io/lilyzhang183/sitemap.xml
+Sitemap: https://lilyzhang183.github.io/sitemap.xml
