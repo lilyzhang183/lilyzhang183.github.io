@@ -14,7 +14,7 @@ At Washington University in St. Louis:
 
 *2025–2026*
 
-- Co-organized the graduate student seminar with Hanzhang Yun.
+- Co-organized the graduate student seminar with [Hanzhang Yun](https://math.wustl.edu/people/hanzhang-yun).
 
 ##### Association for Women in Mathematics (WUAWM) — Secretary
 
