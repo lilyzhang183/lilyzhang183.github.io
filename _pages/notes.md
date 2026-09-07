@@ -20,6 +20,10 @@ nav_order: 4
 
 [*Subfactors*]({{ '/assets/Subfactors.pdf' | relative_url }}), notes from a special lecture at the Groundwork for Operator Algebras Lecture Series, given by Emily Peters.
 
+#### Scalar curvature
+
+[*Notes on positive scalar curvature*]({{ '/assets/Notes%20on%20positive%20scalar%20curvature.pdf' | relative_url }}), reading notes.
+
 #### Geometry and topology
 
 [*A Discussion on Analytic Web Geometry*]({{ '/assets/A%20Discussion%20on%20Analytic%20Web%20Geometry.pdf' | relative_url }}), written for a graduate algebraic geometry course.
