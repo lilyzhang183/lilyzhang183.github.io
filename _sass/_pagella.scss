@@ -1,0 +1,76 @@
+/*! Pagella Web: a subset of TeX Gyre Pagella 2.501 (GUST e-foundry) under the GUST Font License. See /assets/fonts/pagella/README-pagella-web.txt */
+
+// Text font: Pagella Web (URW Palladio design, as in Vakil's "The Rising Sea").
+// Pagella has only 400 and 700 weights, so the lighter MDB defaults are reset
+// to 400 and b/strong to 700 so that bold text stays bold.
+
+@font-face {
+  font-family: "Pagella Web";
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url("../fonts/pagella/pagella-web-regular.woff") format("woff");
+  unicode-range: U+0020-007E, U+00A0-0137, U+0139-0148, U+014A-0165, U+0168-017F, U+0218-021B, U+0237, U+02C6-02C7, U+02D8-02DD, U+0300-0304, U+0306-0308, U+030A-030C, U+0326-0328, U+2000-200D, U+2010-201A, U+201C-201E, U+2020-2022, U+2026, U+202F-2037, U+2039-203B, U+203D, U+203F-2040, U+2044-2046, U+2052, U+2054, U+2057, U+205F-2064, U+20AC, U+2122, U+2190-2193, U+2212, U+2215, U+FB00-FB04, U+FEFF;
+}
+
+@font-face {
+  font-family: "Pagella Web";
+  font-style: italic;
+  font-weight: 400;
+  font-display: fallback;
+  src: url("../fonts/pagella/pagella-web-italic.woff") format("woff");
+  unicode-range: U+0020-007E, U+00A0-0137, U+0139-0148, U+014A-0165, U+0168-017F, U+0218-021B, U+0237, U+02C6-02C7, U+02D8-02DD, U+0300-0304, U+0306-0308, U+030A-030C, U+0326-0328, U+2000-200D, U+2010-201A, U+201C-201E, U+2020-2022, U+2026, U+202F-2037, U+2039-203B, U+203D, U+203F-2040, U+2044-2046, U+2052, U+2054, U+2057, U+205F-2064, U+20AC, U+2122, U+2190-2193, U+2212, U+2215, U+FB00-FB04, U+FEFF;
+}
+
+@font-face {
+  font-family: "Pagella Web";
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: url("../fonts/pagella/pagella-web-bold.woff") format("woff");
+  unicode-range: U+0020-007E, U+00A0-0137, U+0139-0148, U+014A-0165, U+0168-017F, U+0218-021B, U+0237, U+02C6-02C7, U+02D8-02DD, U+0300-0304, U+0306-0308, U+030A-030C, U+0326-0328, U+2000-200D, U+2010-201A, U+201C-201E, U+2020-2022, U+2026, U+202F-2037, U+2039-203B, U+203D, U+203F-2040, U+2044-2046, U+2052, U+2054, U+2057, U+205F-2064, U+20AC, U+2122, U+2190-2193, U+2212, U+2215, U+FB00-FB04, U+FEFF;
+}
+
+@font-face {
+  font-family: "Pagella Web";
+  font-style: italic;
+  font-weight: 700;
+  font-display: fallback;
+  src: url("../fonts/pagella/pagella-web-bolditalic.woff") format("woff");
+  unicode-range: U+0020-007E, U+00A0-0137, U+0139-0148, U+014A-0165, U+0168-017F, U+0218-021B, U+0237, U+02C6-02C7, U+02D8-02DD, U+0300-0304, U+0306-0308, U+030A-030C, U+0326-0328, U+2000-200D, U+2010-201A, U+201C-201E, U+2020-2022, U+2026, U+202F-2037, U+2039-203B, U+203D, U+203F-2040, U+2044-2046, U+2052, U+2054, U+2057, U+205F-2064, U+20AC, U+2122, U+2190-2193, U+2212, U+2215, U+FB00-FB04, U+FEFF;
+}
+
+body {
+  font-family: "Pagella Web", "Palatino Linotype", Palatino, "TeX Gyre Pagella", P052, serif;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+
+.navbar {
+  font-weight: 400;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+// The homepage contact block (address and emails) uses the text font too;
+// al-folio sets it to monospace.
+.profile .more-info {
+  font-family: inherit;
+}
+
+// Palatino is narrower than monospace, so the address and email lines could
+// now run together on one row; keep each on its own line.
+.profile .more-info p {
+  display: block;
+}
