@@ -6,6 +6,19 @@ nav: true
 nav_order: 7
 ---
 
+#### Outreach
+
+##### [TAMU Math Circle](https://sites.google.com/tamu.edu/tamu-math-circle-instructor) — Instructor
+
+*Fall 2026*
+
+##### [Washington University Math Circle](https://mathcircle.wustl.edu/) — Speaker
+
+*Oct 2024; Apr 2025*
+
+
+- For notes, see [Math Circle archives](https://mathcircle.wustl.edu/archives/).
+
 #### Department Service
 
 At Washington University in St. Louis:
@@ -19,12 +32,3 @@ At Washington University in St. Louis:
 ##### Association for Women in Mathematics (WUAWM) — Secretary
 
 *2025–2026*
-
-#### Outreach
-
-##### [Washington University Math Circle](https://mathcircle.wustl.edu/) — Speaker
-
-*Oct 2024; Apr 2025*
-
-
-- For notes, see [Math Circle archives](https://mathcircle.wustl.edu/archives/).
