@@ -8,7 +8,7 @@ nav_order: 7
 
 #### Outreach
 
-##### [TAMU Math Circle](https://sites.google.com/tamu.edu/tamu-math-circle-instructor) — Instructor
+##### [TAMU Math Circle](https://sites.google.com/tamu.edu/tamu-math-circle) — Instructor
 
 *Fall 2026*
 
