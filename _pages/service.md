@@ -19,6 +19,10 @@ nav_order: 7
 
 - For notes, see [Math Circle archives](https://mathcircle.wustl.edu/archives/).
 
+##### [UBC Geering Up Engineering Outreach](https://geeringup.apsc.ubc.ca/) — Junior Instructor
+
+*2017–2019*
+
 #### Department Service
 
 At Washington University in St. Louis:
