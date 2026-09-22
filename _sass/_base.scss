@@ -49,6 +49,12 @@ table.table a {
   }
 }
 
+// Emphasised text inside a link (e.g. an italic title) keeps the link colour;
+// the `em` colour rule above would otherwise paint it in the text colour.
+a em {
+  color: inherit;
+}
+
 .table-dark {
   background-color: transparent;
   &.table-bordered {
