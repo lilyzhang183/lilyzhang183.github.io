@@ -12,11 +12,13 @@ On the *noncommutative geometry* side, I work on higher index theory and its int
 
 Sometimes they overlap.
 
+#### Preprints
+
+*A generalization of Molino's theory to Riemannian groupoids*, [arXiv:2609.23341](https://arxiv.org/abs/2609.23341) (2026).
+
 #### Papers in progress
 
 *Explicit representatives for K-theory classes of Roe and localization algebras of Euclidean spaces*, in preparation.
-
-*A generalization of Molino's theory to Riemannian groupoids*, in preparation.
 
 *Normal quotients and basic cohomology of blow-ups of proper Lie groupoids*, in preparation.
 
