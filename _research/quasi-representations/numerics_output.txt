@@ -1,0 +1,33 @@
+=== 1. Winding numbers and Lemma A  (|w| <= m*delta/4) ===
+m=   5  w(U_m,V_m)=-1.000000  w(U_m,V_m^*)=+1.000000  delta=|1-w_m|=1.17557  m*delta/4=1.4695
+m=  20  w(U_m,V_m)=-1.000000  w(U_m,V_m^*)=+1.000000  delta=|1-w_m|=0.31287  m*delta/4=1.5643
+m= 100  w(U_m,V_m)=-1.000000  w(U_m,V_m^*)=+1.000000  delta=|1-w_m|=0.06282  m*delta/4=1.5705
+m= 400  w(U_m,V_m)=-1.000000  w(U_m,V_m^*)=+1.000000  delta=|1-w_m|=0.01571  m*delta/4=1.5708
+tensor with 1_3:  w(U(x)1, V(x)1) = -3.0
+additivity: w((U_5 (+) U_3), (V_5 (+) V_3^*)) = 0.0
+
+=== 2. The U-turn construction: (U_n (+) U_k, V_n (+) V_k^*) is eta-close to a commuting pair ===
+n     k     L   Nb    eta_X     eta_Y     eta      eta*sqrt(k)   ||[A,B]||   cycle lengths (min,max)
+400   100   4   13   0.31865  0.39018  0.39018    3.9018   8.9e-16   (38,39)
+400   200   6   19   0.22086  0.26105  0.26105    3.6918   6.0e-16   (31,32)
+400   400   9   26   0.15711  0.17431  0.17431    3.4862   9.7e-16   (30,32)
+1000  100   4   13   0.32424  0.39018  0.39018    3.9018   9.6e-16   (84,85)
+1000  250   7   20   0.21091  0.22393  0.22393    3.5406   5.6e-16   (62,63)
+1000  500   10  30   0.13709  0.15692  0.15692    3.5088   5.0e-16   (50,50)
+1000  1000  14  44   0.09243  0.11214  0.11214    3.5462   7.0e-16   (44,46)
+2000  500   10  30   0.14046  0.15692  0.15692    3.5088   5.0e-16   (82,84)
+
+=== 3. Polar-compression lemma on the constructed pair (lane - corner, dimension k) ===
+n=400, k=100: ||[A22,B22]||=0.1563, ||[polar]||=0.1723 <= 6 eta^2 = 0.9134;  offdiag(A),offdiag(B) = 0.2393,0.3827 <= eta=0.3902
+            winding of polar corner = +1.0000  (should be +1 = -w(U_n,V_n));  dist to (U_k, V_k^*) = 0.2698, 0.0000
+n=1000, k=250: ||[A22,B22]||=0.0679, ||[polar]||=0.0704 <= 6 eta^2 = 0.3009;  offdiag(A),offdiag(B) = 0.1525,0.2225 <= eta=0.2239
+            winding of polar corner = +1.0000  (should be +1 = -w(U_n,V_n));  dist to (U_k, V_k^*) = 0.1792, 0.0000
+n=1000, k=1000: ||[A22,B22]||=0.0158, ||[polar]||=0.0159 <= 6 eta^2 = 0.0755;  offdiag(A),offdiag(B) = 0.0713,0.1120 <= eta=0.1121
+            winding of polar corner = +1.0000  (should be +1 = -w(U_n,V_n));  dist to (U_k, V_k^*) = 0.0798, 0.0000
+
+=== 4. Lower bound vs. construction, winding number 1, complement dimension k ===
+k      eta(constr.)   (2/3)/eta^2 (lower bd on k)   ratio k / lower bd
+100    0.39018             4.38                     22.84
+250    0.22393            13.29                     18.80
+500    0.15692            27.07                     18.47
+1000   0.11214            53.01                     18.86

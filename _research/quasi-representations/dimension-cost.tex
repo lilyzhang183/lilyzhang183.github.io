@@ -1,0 +1,636 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\T}{\mathbb T}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Log}{\operatorname{Log}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\wind}{\mathsf w}
+\newcommand{\U}{\mathrm U}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\lamp}{a}
+\newcommand{\dist}{\operatorname{dist}}
+
+\title[Dimension cost of cancelling obstructions]{Dimension cost of cancelling topological obstructions\\ in quasi-representations of $\Z\wr\Z$:\\ a sharp winding-number lemma, an explicit correction,\\ and the degree-four problem}
+\author{Working note (draft, 1 October 2026)}
+
+\begin{document}
+\begin{abstract}
+We isolate and prove the general statement hidden in the lower-bound argument for the nine-block family $\rho_n\colon\Z\wr\Z\to\U(9n^2)$: if an almost commuting pair of unitaries with Exel--Loring winding number $\wind$ becomes $\eta$-close to a commuting pair after a direct sum with any $n'$-dimensional pair, then $n'\ge \tfrac23\,|\wind|\,\eta^{-2}$, and $n'\ge 4|\wind|/\varepsilon_0$ when the complement is $\varepsilon_0$-almost commuting. Both bounds are matched, up to absolute constants, by an explicit Berg-type ``U-turn'' construction, which we write out with constants and verify numerically. At the wreath-product level this gives $n'\asymp_F n\max\{\eta^{-2},\varepsilon_0^{-1}\}$ for the family, i.e.\ square-root growth in the original dimension, and the negligible-overhead correction. We then analyse $\rho_n\oplus\overline{\rho_n}$, where all degree-two characters vanish and the degree-four character survives: we prove the compression half of a degree-four lower bound of the predicted scale $\max\{\eta^{-4},\varepsilon_0^{-2}\}$, state precisely the one estimate that remains (a quantitative Chern--Weil bound for almost commuting $4$-tuples), identify the natural candidate complement of dimension $O(k^2)$ independent of $n$, and explain exactly why the one-dimensional U-turn construction does not extend to it. The remaining sections record variable-period constructions, the stable-equivalence and parametric questions, and the $\Z\wr H$ versus $H\wr\Z$ dichotomy, together with a literature check performed under restricted network access.
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section*{Summary: what is proved, what is conditional, what is open}
+
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{Proved.} Lemma~\ref{lem:wind} (sharp bound $|\wind(U,V)|\le \frac m\pi\arcsin\frac{\norm{[U,V]}}2$), Lemma~\ref{lem:compression} (polar compression of a commuting pair has defect $\le 6\eta^2$), Theorem~\ref{thm:lower} (the lower bounds $n'\ge\frac23|\wind|\eta^{-2}$ and $n'\ge 4|\wind|/\varepsilon_0$), Theorem~\ref{thm:uturn} (the U-turn correction with $\eta\le 17k^{-1/2}$ and complement defect $\le 2\pi/k$), Corollary~\ref{cor:sharp} (two-sided bound for Voiculescu pairs), Theorem~\ref{thm:wreath} (the wreath-product statement $n'\asymp_F n\max\{\eta^{-2},\varepsilon_0^{-1}\}$ for the model family), Corollary~\ref{cor:negligible} (negligible-overhead correction).
+\item \textbf{Conditional.} Proposition~\ref{prop:deg4} gives the degree-four lower bound $n'\gtrsim|\ch_2|\max\{\eta^{-4},\varepsilon_0^{-2}\}$ for $\rho_n\oplus\overline{\rho_n}$, uniformly in $n$, assuming Hypothesis~\ref{hyp:cw} (a quantitative Chern--Weil estimate for almost commuting $4$-tuples). The compression step of that argument is proved in full (Lemma~\ref{lem:compression-tuple}); Hypothesis~\ref{hyp:cw} holds for degree two with the sharp constant (Lemma~\ref{lem:wind}).
+\item \textbf{Open.} Whether the candidate complement of Section~\ref{sec:candidate} (dimension $18k^2$, independent of $n$) works, i.e.\ whether the degree-four obstruction can be cancelled at cost independent of $n$ (Conjecture~\ref{conj:deg4}); the common-summand, parametric and group-wide questions of Section~\ref{sec:further}.
+\item \textbf{Caveat on the model.} The handwritten construction of $\rho_n$ was not available to the author of this note. Section~\ref{sec:model} fixes an explicit \emph{model} nine-block family with every feature quoted in the project description (period nine, $D_n^9=I$, dimension $9n^2$, degree-two winding number of magnitude $n$, non-zero degree-four character). All statements are formulated for general period-$p$ block families (Definition~\ref{def:block}) so that they apply verbatim to the original matrices once the lamp blocks are substituted.
+\end{enumerate}
+
+\section{Setting and conventions}\label{sec:setting}
+
+Throughout, $\norm{\cdot}$ is the operator norm, $\U(m)$ the unitary group of $\C^m$, and $[S,T]=ST-TS$.
+
+\subsection{Quasi-representations, complements, and the quantity $N'$}
+
+Let $\Gamma$ be a discrete group and $F\subset\Gamma$ a finite set. A map $\rho\colon\Gamma\to\U(N)$ is an \emph{$(F,\varepsilon)$-quasi-representation} if $\norm{\rho(g)\rho(h)-\rho(gh)}\le\varepsilon$ for all $g,h\in F$; we call $\varepsilon$ its \emph{defect on $F$}. Two maps $\rho,\pi\colon\Gamma\to\U(N)$ are \emph{$\eta$-close on $F$} if $\norm{\rho(g)-\pi(g)}\le\eta$ for all $g\in F$.
+
+\begin{definition}[dimension cost of a correction]\label{def:Nprime}
+For a quasi-representation $\rho\colon\Gamma\to\U(N)$, a finite set $F$, and tolerances $\eta,\varepsilon_0>0$, let
+\[
+N'(\rho;F,\eta,\varepsilon_0)\;=\;\min\Bigl\{\dim\sigma\;:\;
+\begin{array}{l}\sigma\colon\Gamma\to\U(n')\text{ has defect }\le\varepsilon_0\text{ on }F,\text{ and there is a}\\ \text{genuine unitary representation }\pi\text{ of }\Gamma\text{ on }\C^{N+n'}\text{ that is }\eta\text{-close to }\rho\oplus\sigma\text{ on }F\end{array}\Bigr\},
+\]
+with $N'=\infty$ if no such $\sigma$ exists. We call $\sigma$ a \emph{complement} and $\pi$ a \emph{correction}.
+\end{definition}
+
+This is the quantity denoted $n'$ in the project description. It should be distinguished from the common-summand (stable equivalence) problem $\rho_0\oplus\tau\approx_u\rho_1\oplus\tau$ of Weinberger--Wu--Yu, see Section~\ref{sec:further}.
+
+\subsection{Almost commuting pairs and the winding number}
+
+For $U,V\in\U(m)$ write $\delta(U,V)=\norm{[U,V]}$. If $\delta(U,V)<2$, the unitary $Z=VUV^*U^*$ satisfies $\norm{Z-1}=\delta(U,V)<2$, so $-1\notin\operatorname{spec}(Z)$ and the principal logarithm $\Log Z$ (spectrum in $i(-\pi,\pi)$) is defined. The \emph{Exel--Loring winding number} is
+\begin{equation}\label{eq:wind}
+\wind(U,V)\;=\;\frac1{2\pi i}\Tr\Log\bigl(VUV^*U^*\bigr).
+\end{equation}
+Since $\det Z=1$, $\Tr\Log Z\in 2\pi i\Z$, so $\wind(U,V)\in\Z$. It is continuous on the open set $\{\delta<2\}$, hence locally constant; it is additive under direct sums; and it vanishes on commuting pairs. Exel and Loring \cite{EL89,EL91} showed that $\wind$ equals the Bott index of the pair, and that it is the complete obstruction to approximation by commuting pairs: a sequence of pairs with $\delta\to0$ is asymptotically close to commuting pairs if and only if $\wind=0$ eventually. Uniform versions (``$\wind=0$ and $\delta\le\delta(\eta)$ implies $\eta$-close to commuting'') are due to Gong--Lin and Eilers--Loring--Pedersen, as recalled in \cite{LS26}.
+
+\emph{Voiculescu's pair} on $\C^n$ is $P_n=(U_n,V_n)$ with $U_n=\operatorname{diag}(\omega^j)_{j\in\Z/n}$, $\omega=e^{2\pi i/n}$, and $V_ne_j=e_{j+1}$. Then $V_nU_nV_n^*=\omega^{-1}U_n$, so
+\begin{equation}\label{eq:voic}
+\delta(U_n,V_n)=|1-\omega|=2\sin\frac\pi n,\qquad \wind(U_n,V_n)=\frac{1}{2\pi i}\cdot n\cdot\Bigl(-\frac{2\pi i}{n}\Bigr)=-1 .
+\end{equation}
+The pairs $(U_n,V_n^*)$, $(U_n^*,V_n)$ and the complex conjugate pair $\overline{P_n}=(\overline{U_n},\overline{V_n})=(U_n^*,V_n)$ have winding number $+1$. For later use note the unitary equivalence $\overline{P_n}\simeq(U_n,V_n^*)$ implemented by the flip $e_j\mapsto e_{-j}$.
+
+\subsection{Quasi-representations of $\Z^{d}$ and their characters}\label{sec:characters}
+
+A $d$-tuple $T=(T_1,\dots,T_d)\in\U(m)^d$ with $\delta(T)=\max_{a<b}\norm{[T_a,T_b]}$ small is the same thing as a quasi-representation of $\Z^d$ (on the generators), and we use the two languages interchangeably. To such a tuple with $\delta(T)$ below an absolute threshold is associated a vector bundle $E_T$ over the torus $\T^d$, of rank $m$, whose $K$-theory class is locally constant in $T$, additive under direct sums, multiplicative under external tensor products of tuples acting on different factors $\T^{d_1}\times\T^{d_2}$, satisfies $E_{\overline T}=\overline{E_T}$, and is trivial when $T$ is a genuine (commuting) representation; see Exel--Loring \cite{EL91} for $d=2$, and Dadarlat \cite{Dad12}, Hunger \cite{Hun19}, Kubota \cite{Kub19} and Dadarlat--Glebe \cite{DG25} in general. Since $\ch\colon K^0(\T^{d})\to H^{\mathrm{ev}}(\T^{d};\Z)$ is an isomorphism, the \emph{characters}
+\begin{equation}\label{eq:Ij}
+I_j(T)\;=\;\bigl\langle \ch_j(E_T),[\T^{2j}]\bigr\rangle\in\Z\qquad(d=2j)
+\end{equation}
+are integers, and for $d=2$ one has $I_1(U,V)=\wind(U,V)$ (Exel--Loring). We shall only use the following consequences of the Chern character calculus: for a pair $P$ of dimension $n$ with $\wind(P)=c$, $\ch(E_P)=n+c\,x$ with $x$ the generator of $H^2(\T^2;\Z)$, so that
+\begin{equation}\label{eq:tensorch}
+\ch\bigl(E_{P\otimes P'}\bigr)=(n+c\,x_1)(n'+c'\,x_2)=nn'+n'c\,x_1+nc'\,x_2+cc'\,x_1x_2,
+\qquad \ch_j(\overline E)=(-1)^j\ch_j(E).
+\end{equation}
+In particular $\wind(U\otimes 1_{n'},V\otimes1_{n'})=n'\,\wind(U,V)$ (which is also immediate from \eqref{eq:wind}), and $I_2(P\otimes P')=\wind(P)\wind(P')$.
+
+\subsection{The wreath product and period-$p$ block families}\label{sec:model}
+
+Let $\Gamma=\Z\wr\Z=\bigl(\bigoplus_{j\in\Z}\Z\bigr)\rtimes\Z$ with generators $\lamp$ (the lamp at position $0$) and $t$ (the shift), and lamps $\lamp_j=t^j\lamp t^{-j}$. Every element has a unique normal form $g=(f,s)=\prod_{j}\lamp_j^{f(j)}\,t^{s}$ with $f\colon\Z\to\Z$ finitely supported; we write $\ell(g)=\sum_j|f(j)|$ for its lamp length, and $\ell(F)=\max_{g\in F}\ell(g)$.
+
+\begin{definition}[period-$p$ block family]\label{def:block}
+Let $p\ge1$, let $D_p\in\U(p)$ be the cyclic shift $e_i\mapsto e_{i+1}$ on $\C^p$ (so $D_p^p=I$), and let $W=(W_i)_{i\in\Z/p}$ be unitaries on $\C^{d}$. Define $\rho_W\colon\Gamma\to\U(\C^p\otimes\C^{d})$ by
+\[
+\rho_W(t)=D_p\otimes1,\qquad \rho_W(\lamp)=\sum_{i\in\Z/p}e_{ii}\otimes W_i,\qquad
+\rho_W(\lamp_j):=\rho_W(t)^j\rho_W(\lamp)\rho_W(t)^{-j}=\sum_i e_{ii}\otimes W_{i-j},
+\]
+and $\rho_W(f,s)=\prod_{j\uparrow}\rho_W(\lamp_j)^{f(j)}\,\rho_W(t)^s$ (product in increasing order of $j$).
+\end{definition}
+
+The shift relations hold exactly, $\rho_W(\lamp_{j+p})=\rho_W(\lamp_j)$ (this is the structural limitation $D^p=I$, $V_{j+p}=V_j$ noted in the project description), and the only defect comes from reordering lamp operators: with
+\[
+\delta(W)=\max_{r,s}\norm{[W_r,W_s]},\qquad\text{one has}\qquad \norm{[\rho_W(\lamp_j),\rho_W(\lamp_{j'})]}=\max_i\norm{[W_{i-j},W_{i-j'}]}\le\delta(W)
+\]
+for all $j,j'$,
+and a word with $\ell$ lamp letters can be reordered at cost at most $\binom{\ell}{2}\delta(W)$. Hence
+\begin{equation}\label{eq:defectF}
+\rho_W\ \text{has defect at most}\ \tfrac12\bigl(2\ell(F)\bigr)^2\delta(W)=2\ell(F)^2\delta(W)\ \text{on } F.
+\end{equation}
+Conversely, if $W_i'$ ($i\in\Z/p$) are unitaries on $\C^{d'}$ and $A_i$ are \emph{commuting} unitaries on $\C^{d}\oplus\C^{d'}$ with $\norm{W_i\oplus W_i'-A_i}\le\eta_0$ for all $i$, then $\pi:=\rho_A$ is a genuine representation of $\Gamma$ and, by telescoping,
+\begin{equation}\label{eq:closeF}
+\norm{(\rho_W\oplus\rho_{W'})(g)-\rho_A(g)}\le\ell(g)\,\eta_0\qquad(g\in\Gamma).
+\end{equation}
+
+\begin{example}[the model nine-block family]\label{ex:model}
+Take $p=9$, $d=n^2$, $\C^{d}=\C^n\otimes\C^n$, and
+\[
+W_0=U_n\otimes1,\quad W_1=V_n\otimes1,\quad W_3=1\otimes U_n,\quad W_5=1\otimes V_n,\quad W_i=1\ \text{otherwise}.
+\]
+Then $\rho_n:=\rho_W\colon\Z\wr\Z\to\U(9n^2)$ has $\delta(W)=2\sin(\pi/n)$, $D_n:=D_9\otimes 1$ satisfies $D_n^9=I$, and:
+\begin{itemize}[leftmargin=2em]
+\item the lamp pair $(\rho_n(\lamp_0),\rho_n(\lamp_{-1}))$ is block diagonal with blocks $(W_i,W_{i+1})$; the only non-commuting block is $i=0$, namely $(U_n\otimes1,V_n\otimes1)$, so $\wind(\rho_n(\lamp_0),\rho_n(\lamp_{-1}))=-n$: a degree-two character of magnitude $n$, attached to the translation class of the two-point lamp pattern $\{0,1\}$;
+\item likewise the pair $(\rho_n(\lamp_0),\rho_n(\lamp_{-2}))$ has the single non-commuting block $(1\otimes U_n,1\otimes V_n)$ ($i=3$), hence winding number $-n$ attached to the class of $\{0,2\}$;
+\item the lamp $4$-tuple $(\rho_n(\lamp_0),\rho_n(\lamp_{-1}),\rho_n(\lamp_{-3}),\rho_n(\lamp_{-5}))$ has blocks $(W_i,W_{i+1},W_{i+3},W_{i+5})$; the block $i=0$ is the tensor tuple $(U_n\otimes1,V_n\otimes1,1\otimes U_n,1\otimes V_n)$ with $I_2=\wind(P_n)^2=1$ by \eqref{eq:tensorch}, and every other block contains at most one almost commuting pair, so its $I_2$ vanishes. Thus $\rho_n$ has a non-zero degree-four character, attached to the class of $\{0,1,3,5\}$.
+\end{itemize}
+Every statement below is proved for general $\rho_W$ in terms of the lamp blocks, and only the identification of which block carries which character uses the specific placement. If the original construction places the two Voiculescu pairs in the same translation class (for instance at positions $\{0,1\}$ and $\{4,5\}$), the degree-two character of that class becomes $2n$ and the constants below change by a factor $2$.
+\end{example}
+
+\begin{remark}[which classes a block family can see]
+By Chakraborty--Echterhoff--Kranz--Nishikawa \cite{CEKN22}, $C^*(\Z\wr\Z)\cong C(\T^{\Z})\rtimes_{\mathrm{shift}}\Z$ has
+\[
+K_0\;\cong\;\Z\;\oplus\bigoplus_{[S]}\Z ,\qquad S\subset\Z\text{ finite, non-empty, }|S|\text{ even},
+\]
+the sum running over translation classes $[S]$ (the stabiliser of a non-empty finite set under translation is trivial, and $\widetilde K_*(C(\T))=\Z$ in odd degree, so a pattern $S$ contributes in degree $|S|\bmod2$); the odd part is indexed likewise by odd patterns. A period-$p$ block family $\rho_W$ sees the pattern $S=\{0,d\}$ through the lamp pair $(\lamp_0,\lamp_{-d})$, whose blocks are $(W_i,W_{i+d})$; since $W_{i+p}=W_i$, the patterns $\{0,d\}$ and $\{0,d+p\}$ give the same matrices although they are different $K$-theory coordinates. This is why a variable period is needed to address the ``does it generate all classes?'' question, see Section~\ref{sec:prescribed}.
+\end{remark}
+
+\section{The winding-number lower bound}\label{sec:lower}
+
+\begin{lemma}[properties of $\wind$]\label{lem:wind}
+Let $U,V\in\U(m)$ with $\delta=\delta(U,V)<2$. Then:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.5em]
+\item $\wind(U,V)\in\Z$, and $\wind$ is locally constant on $\{(U,V):\delta(U,V)<2\}$;
+\item $\wind(U_1\oplus U_2,V_1\oplus V_2)=\wind(U_1,V_1)+\wind(U_2,V_2)$, and $\wind(U,V)=0$ if $UV=VU$;
+\item $\displaystyle |\wind(U,V)|\le\frac m\pi\arcsin\frac\delta2\le\frac{m\,\delta}4$, with equality in the first inequality for Voiculescu's pair $(U_m,V_m)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) $\exp(\Tr\Log Z)=\det Z=1$ for $Z=VUV^*U^*$, so $\Tr\Log Z\in2\pi i\Z$; continuity follows from the continuity of $\Log$ on unitaries whose spectrum avoids $-1$. (ii) is clear from \eqref{eq:wind}. (iii) Let $e^{i\theta_1},\dots,e^{i\theta_m}$, $\theta_r\in(-\pi,\pi)$, be the eigenvalues of $Z$. Since $|e^{i\theta_r}-1|=2|\sin(\theta_r/2)|\le\norm{Z-1}=\delta$ and $|\theta_r|/2\in[0,\pi/2)$, we get $|\theta_r|\le2\arcsin(\delta/2)$, hence $|\Tr\Log Z|\le 2m\arcsin(\delta/2)$ and the first inequality. The second uses $\arcsin x\le\frac\pi2x$ on $[0,1]$ ($\arcsin$ is convex there). For Voiculescu's pair all $\theta_r=-2\pi/m$ and $\delta=2\sin(\pi/m)$, so $\frac m\pi\arcsin\frac\delta2=1=|\wind|$.
+\end{proof}
+
+\begin{lemma}[path lemma]\label{lem:path}
+Let $(U_0,V_0),(U_1,V_1)\in\U(m)^2$ with $\norm{U_0-U_1}\le d$, $\norm{V_0-V_1}\le d$, where $d<2$ and $\delta(U_0,V_0)+4d<2$. Then $\wind(U_0,V_0)=\wind(U_1,V_1)$.
+\end{lemma}
+
+\begin{proof}
+For unitaries $W_0,W_1$ with $\norm{W_0-W_1}\le d<2$ write $W_0^*W_1=e^{iH}$ with $H=H^*$ and $\operatorname{spec}H\subset[-\varphi,\varphi]$, $\varphi=2\arcsin(d/2)<\pi$. The path $W_s=W_0e^{isH}$, $s\in[0,1]$, consists of unitaries with $\norm{W_s-W_0}=\max_\theta 2|\sin(s\theta/2)|\le2\sin(\varphi/2)=d$. Applying this to both coordinates gives a path $(U_s,V_s)$ with
+\[
+\norm{[U_s,V_s]}\le\norm{[U_0,V_0]}+\norm{[U_s-U_0,V_s]}+\norm{[U_0,V_s-V_0]}\le\delta(U_0,V_0)+4d<2,
+\]
+along which $\wind$ is defined, continuous and integer valued, hence constant.
+\end{proof}
+
+\begin{lemma}[polar compression]\label{lem:compression}
+Let $A,B$ be commuting unitaries on $H=H_1\oplus H_2$, written in block form $A=\begin{pmatrix}A_{11}&A_{12}\\A_{21}&A_{22}\end{pmatrix}$, and suppose $\norm{A_{12}},\norm{A_{21}},\norm{B_{12}},\norm{B_{21}}\le\eta<1$. Then $A_{22},B_{22}$ are invertible, and their polar parts $\tilde A=A_{22}|A_{22}|^{-1}$, $\tilde B=B_{22}|B_{22}|^{-1}\in\U(H_2)$ satisfy
+\[
+\norm{[A_{22},B_{22}]}\le2\eta^2,\qquad \norm{A_{22}-\tilde A},\ \norm{B_{22}-\tilde B}\le\eta^2,\qquad \norm{[\tilde A,\tilde B]}\le6\eta^2 .
+\]
+If moreover $U\in\U(H_1)$ with $\norm{A_{11}-U}\le\eta$, then $\norm{A-(U\oplus\tilde A)}\le2\eta$ (and likewise for $B$).
+\end{lemma}
+
+\begin{proof}
+From $(AB)_{22}=A_{21}B_{12}+A_{22}B_{22}$ and $AB=BA$,
+\[
+[A_{22},B_{22}]=(AB-BA)_{22}-A_{21}B_{12}+B_{21}A_{12}=-A_{21}B_{12}+B_{21}A_{12},
+\]
+of norm $\le2\eta^2$. From $A^*A=1$ we get $A_{12}^*A_{12}+A_{22}^*A_{22}=1$, so $|A_{22}|=(1-A_{12}^*A_{12})^{1/2}\ge(1-\eta^2)^{1/2}>0$, $A_{22}$ is invertible, and $\norm{A_{22}-\tilde A}=\norm{\tilde A(|A_{22}|-1)}=\norm{1-(1-A_{12}^*A_{12})^{1/2}}\le1-(1-\eta^2)^{1/2}\le\eta^2$. Then
+\[
+[\tilde A,\tilde B]=[A_{22},B_{22}]+[\tilde A-A_{22},B_{22}]+[\tilde A,\tilde B-B_{22}]
+\]
+has norm $\le2\eta^2+2\eta^2+2\eta^2$. Finally $A-(U\oplus\tilde A)$ has diagonal blocks $A_{11}-U$, $A_{22}-\tilde A$ (norms $\le\eta$, $\eta^2$) and off-diagonal blocks $A_{12},A_{21}$ (norms $\le\eta$); the norm of a $2\times2$ block matrix is at most the norm of its diagonal part plus that of its off-diagonal part, giving $\le2\eta$.
+\end{proof}
+
+\begin{theorem}[dimension lower bound from the winding number]\label{thm:lower}
+Let $(U,V)\in\U(N)^2$ with $\delta(U,V)\le\frac15$, let $n'\ge1$ and $0<\eta\le\frac15$.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=2.5em]
+\item \textup{(dilation form)} Suppose $A,B$ are commuting unitaries on $\C^N\oplus\C^{n'}$ whose off-diagonal blocks have norm $\le\eta$ and whose $(1,1)$ blocks satisfy $\norm{A_{11}-U}\le\eta$, $\norm{B_{11}-V}\le\eta$. Then
+\[
+n'\;\ge\;\frac{|\wind(U,V)|}{\frac1\pi\arcsin(3\eta^2)}\;\ge\;\frac23\,|\wind(U,V)|\,\eta^{-2}.
+\]
+In particular this holds whenever $(U\oplus U',V\oplus V')$ is $\eta$-close to a commuting pair for \emph{some} unitaries $U',V'\in\U(n')$, with no hypothesis on $(U',V')$.
+\item If $(U',V')\in\U(n')^2$ has $\delta(U',V')\le\varepsilon_0\le\frac15$ and $(U\oplus U',V\oplus V')$ is $\eta$-close to a commuting pair, then $\wind(U',V')=-\wind(U,V)$ and
+\[
+n'\;\ge\;\frac{|\wind(U,V)|}{\frac1\pi\arcsin(\varepsilon_0/2)}\;\ge\;\frac{4\,|\wind(U,V)|}{\varepsilon_0}.
+\]
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) Lemma~\ref{lem:compression} produces unitaries $\tilde U',\tilde V'\in\U(n')$ with $\delta(\tilde U',\tilde V')\le6\eta^2$ and $\norm{A-(U\oplus\tilde U')},\norm{B-(V\oplus\tilde V')}\le2\eta$. The pair $(U\oplus\tilde U',V\oplus\tilde V')$ has $\delta\le\max\{\frac15,\frac6{25}\}=\frac6{25}$ and is $2\eta\le\frac25$-close to the commuting pair $(A,B)$; since $\frac6{25}+4\cdot\frac25<2$, Lemma~\ref{lem:path} gives $\wind(U\oplus\tilde U',V\oplus\tilde V')=\wind(A,B)=0$, hence $\wind(\tilde U',\tilde V')=-\wind(U,V)$ by additivity. Lemma~\ref{lem:wind}(iii) applied to $(\tilde U',\tilde V')$ gives $|\wind(U,V)|\le\frac{n'}\pi\arcsin(3\eta^2)\le\frac32n'\eta^2$. For the last sentence note that if $\norm{A-(U\oplus U')}\le\eta$ then the off-diagonal blocks of $A$ have norm $\le\eta$ and $\norm{A_{11}-U}\le\eta$.
+
+(b) Now $(U\oplus U',V\oplus V')$ has $\delta\le\frac15$ and is $\eta$-close to $(A,B)$ with $\frac15+4\eta<2$, so Lemma~\ref{lem:path} gives $\wind(U',V')=-\wind(U,V)$, and Lemma~\ref{lem:wind}(iii) gives $|\wind(U,V)|\le\frac{n'}{\pi}\arcsin(\varepsilon_0/2)\le n'\varepsilon_0/4$.
+\end{proof}
+
+\begin{remark}[what the compression buys]
+Without Lemma~\ref{lem:compression} one only gets the linear bound: if $(U\oplus U',V\oplus V')$ is $\eta$-close to a commuting pair then $\delta(U',V')\le4\eta$, so $|\wind(U,V)|=|\wind(U',V')|\le n'\eta$ and $n'\ge|\wind|/\eta$. The compressed corner of an exactly commuting pair is \emph{quadratically} almost commuting, which is what produces the exponent $2$. Corollary~\ref{cor:sharp} below shows that the exponent $2$ is the truth.
+\end{remark}
+
+\begin{remark}[relation to flexible stability of $\Z^2$]\label{rem:LS}
+Lubotzky--Salomon \cite{LS26} prove that $\Z^2$ is flexibly stable in the operator norm: for every pair of almost commuting unitaries in dimension $d_n$ there is a commuting pair in dimension $d_n+o(d_n)$ whose compression to $\C^{d_n}$ is close to the given pair; their enlargement is $|\wind(u_n,v_n)|\,m_n$ with $m_n\to\infty$ chosen slowly, obtained by appending $|\wind|$ copies of a shift/phase pair of dimension $m_n$ and invoking the (non-quantitative) Gong--Lin / Eilers--Loring--Pedersen theorem. Theorem~\ref{thm:lower}(a) is exactly a lower bound for enlargements in this compression sense: any enlargement achieving tolerance $\eta$ has dimension at least $\frac23|\wind|\eta^{-2}$, so in their construction necessarily $m_n\ge\frac23\eta_n^{-2}$. We could not consult \cite{LS26} directly (see Section~\ref{sec:lit}); whether a lower bound of this form appears there has to be checked.
+\end{remark}
+
+\section{The U-turn construction and sharpness}\label{sec:uturn}
+
+\begin{theorem}[explicit correction of a Voiculescu pair with a small complement]\label{thm:uturn}
+Let $k\ge64$ and $n\ge k$. Put
+\[
+X=U_n\oplus U_k,\qquad Y=V_n\oplus V_k^{*}\qquad\text{on }\C^{n}\oplus\C^{k}.
+\]
+Then $\delta(U_k,V_k^*)=2\sin(\pi/k)\le2\pi/k$, $\wind(U_k,V_k^*)=+1=-\wind(U_n,V_n)$, and there are commuting unitaries $A,B\in\U(n+k)$ with
+\[
+\norm{X-A}\le\frac{12}{\sqrt k},\qquad\norm{Y-B}\le\frac{4\pi}{\sqrt k}\le\frac{13}{\sqrt k}.
+\]
+Numerically the construction gives $\max\{\norm{X-A},\norm{Y-B}\}\approx3.5\,k^{-1/2}$ (Appendix~\ref{app:num}).
+\end{theorem}
+
+The construction is a finite-dimensional version of Berg's technique \cite{Berg71,Dav85}, as used by Loring \cite{Lor88} and Exel--Loring \cite{EL89} for the case $k=n$; the point here is to write it with a complement of arbitrary size $k\le n$ and with explicit constants.
+
+\begin{construction}[U-turns]\label{con:uturn}
+Think of $\C^n$ as functions on the ring of sites $j\in\Z/n$ (``lane $+$'') with basis $e^+_j$, and of $\C^k$ as functions on the ring $\ell\in\Z/k$ (``lane $-$'') with basis $e^-_\ell$. Each site carries a \emph{phase}: $\varphi(e^+_j)=2\pi j/n$ and $\varphi(e^-_\ell)=2\pi\ell/k$, so that $X$ is multiplication by $e^{i\varphi}$. The unitary $Y$ moves lane $+$ \emph{forward} in phase ($e^+_j\mapsto e^+_{j+1}$) and lane $-$ \emph{backward} in phase ($e^-_\ell\mapsto e^-_{\ell-1}$).
+
+Fix a window length $L\ge1$ and a number $N_b\ge1$ of turning points, and put $\theta_a=2\pi a/N_b$, $m^+_a=\lfloor na/N_b\rfloor$, $m^-_a=\lfloor ka/N_b\rfloor$ for $a=0,\dots,N_b-1$ (indices mod $N_b$, sites mod $n$ resp.\ $k$). Assume the \emph{feasibility condition}
+\begin{equation}\label{eq:feasible}
+\lfloor k/N_b\rfloor\ \ge\ L+1\qquad(\text{which implies the same for }n\ge k).
+\end{equation}
+At each turning point $a$ consider the $2(L+1)$ vectors
+\[
+h_i=e^+_{m^+_a-L+i},\qquad F_i=e^-_{m^-_a+L-i}\qquad(i=0,\dots,L),
+\]
+so that $Yh_i=h_{i+1}$ and $YF_i=F_{i+1}$ for $i<L$ (both lanes now move forward in the index $i$), and the rotated frame
+\[
+h_i'=\cos\alpha_i\,h_i+\sin\alpha_i\,F_i,\qquad f_i'=-\sin\alpha_i\,h_i+\cos\alpha_i\,F_i,\qquad \alpha_i=\frac{\pi}{2}\cdot\frac iL .
+\]
+By \eqref{eq:feasible} the windows of different turning points involve disjoint sets of basis vectors. Define the unitary $B$ by
+\[
+Bh_i'=h_{i+1}',\qquad Bf_i'=f_{i+1}'\qquad(0\le i<L,\ \text{all }a),\qquad B=Y\ \text{on the orthogonal complement of all }\{h_i',f_i'\}_{i<L}.
+\]
+Since $Yh'_i=\cos\alpha_i h_{i+1}+\sin\alpha_iF_{i+1}$, one has $B=\mathcal R\,Y$ where $\mathcal R$ is the identity outside the planes $\operatorname{span}\{h_{i+1},F_{i+1}\}$ and the rotation by $\Delta\alpha=\pi/(2L)$ in each of them; hence $B$ is unitary and
+\begin{equation}\label{eq:YB}
+\norm{Y-B}=\norm{\mathcal R-1}=2\sin\frac{\pi}{4L}\le\frac{\pi}{2L}.
+\end{equation}
+\end{construction}
+
+\begin{lemma}[orbit structure]\label{lem:orbits}
+Under \eqref{eq:feasible}, $B$ permutes, up to signs, an orthonormal basis of $\C^{n+k}$, and its orbits are the $N_b$ cycles $\mathcal C_a$ ($a\in\Z/N_b$) of length $M^+_a+M^-_a$, where $M^\pm_a=m^\pm_{a+1}-m^\pm_a$:
+\begin{multline*}
+-e^+_{m^+_a}\to e^+_{m^+_a+1}\to\dots\to e^+_{m^+_{a+1}-L-1}\to h^{\prime(a+1)}_0\to\dots\to h^{\prime(a+1)}_L=e^-_{m^-_{a+1}}\\
+\to e^-_{m^-_{a+1}-1}\to\dots\to e^-_{m^-_a+L+1}\to f^{\prime(a)}_0\to\dots\to f^{\prime(a)}_L=-e^+_{m^+_a}.
+\end{multline*}
+Every basis vector appearing in $\mathcal C_a$ is supported on lane-$+$ sites in $[m^+_a-L,\,m^+_{a+1}]$ and lane-$-$ sites in $[m^-_a,\,m^-_{a+1}+L]$.
+\end{lemma}
+
+\begin{proof}
+A particle moving forward on lane $+$ enters the window of turning point $a+1$ at $h_0'=h_0=e^+_{m^+_{a+1}-L}$, is rotated step by step, and leaves it at $h_L'=F_L=e^-_{m^-_{a+1}}$, after which $B=Y$ moves it backward on lane $-$: this is the U-turn. Symmetrically a particle moving backward on lane $-$ enters the window of turning point $a$ at $f_0'=F_0=e^-_{m^-_a+L}$ and leaves it at $f_L'=-h_L=-e^+_{m^+_a}$, after which $B=Y$ moves it forward on lane $+$. Between windows $B=Y$ acts as the shift. Counting, the cycle contains $M^+_a-L$ lane-$+$ vectors, $L+1$ vectors $h^{\prime(a+1)}_i$, $M^-_a-L-1$ lane-$-$ vectors and $L$ vectors $f^{\prime(a)}_i$, in total $M^+_a+M^-_a$; summing over $a$ gives $n+k$, so the cycles exhaust an orthonormal basis (the sign $-1$ at the closing step is harmless). The support statement is read off from the list.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:uturn}]
+Let $P_a$ be the orthogonal projection onto $\mathcal H_a=\operatorname{span}\mathcal C_a$; these are $B$-invariant, mutually orthogonal and sum to $1$. Put
+\[
+A=\sum_{a}c_aP_a,\qquad c_a=e^{i(\theta_a+\theta_{a+1})/2}.
+\]
+Then $A$ is unitary and commutes with $B$. We estimate $\norm{X-A}$. By Lemma~\ref{lem:orbits} and $n\ge k$, every basis vector in $\mathcal C_a$ has phase in the arc
+\[
+J_a=\bigl[\theta_a-\tfrac{2\pi(L+1)}k,\ \theta_{a+1}+\tfrac{2\pi(L+1)}k\bigr]
+\]
+(for lane $+$: sites $j\in[m^+_a-L,m^+_{a+1}]$ have $2\pi j/n\in[\theta_a-2\pi(L+1)/n,\theta_{a+1}]$; for lane $-$: sites in $[m^-_a,m^-_{a+1}+L]$ have phases in $[\theta_a-2\pi/k,\theta_{a+1}+2\pi L/k]$). Every point of $J_a$ is within angular distance
+\[
+R=\frac{\Delta\theta}{2}+\frac{2\pi(L+1)}{k},\qquad\Delta\theta=\frac{2\pi}{N_b},
+\]
+of the midpoint $c_a$, so $\norm{(X-c_a)P_a}\le|e^{iR}-1|\le R$. Write $X-A=\sum_a(X-c_a)P_a=\sum_a u_a$ applied to $v=\sum_aP_av$. The vector $u_a$ is supported on the sites of $\mathcal C_a$, and by \eqref{eq:feasible} these sets are disjoint for $|a-b|\ge2$, so $\langle u_a,u_b\rangle=0$ unless $b\in\{a-1,a,a+1\}$ and
+\[
+\Bigl\lVert\sum_au_a\Bigr\rVert^2\le\sum_a\norm{u_a}^2+\sum_a\bigl(\norm{u_a}^2+\norm{u_{a+1}}^2\bigr)=3\sum_a\norm{u_a}^2\le3R^2\sum_a\norm{P_av}^2=3R^2\norm v^2 .
+\]
+Hence $\norm{X-A}\le\sqrt3\,R$.
+
+Now choose $L=\lfloor\sqrt k/4\rfloor$ and $N_b=\lfloor k/(2(L+1))\rfloor$. For $k\ge64$: $L\ge1$, $L+1\le\sqrt k/2$, $N_b\ge1$, and $\lfloor k/N_b\rfloor\ge2(L+1)-1\ge L+1$, so \eqref{eq:feasible} holds. Moreover $N_b\ge k/(2(L+1))-1$ gives
+\[
+\Delta\theta\le\frac{4\pi(L+1)}{k-2(L+1)}\le\frac{4\pi(L+1)}{k-\sqrt k}\le\frac{32\pi}{7}\cdot\frac{L+1}{k},\qquad
+R\le\frac{30\pi}{7}\cdot\frac{L+1}{k}\le\frac{15\pi}{7\sqrt k},\qquad \norm{X-A}\le\sqrt3\,\frac{15\pi}{7\sqrt k}<\frac{12}{\sqrt k},
+\]
+and since $L\ge\sqrt k/4-1\ge\sqrt k/8$, \eqref{eq:YB} gives $\norm{Y-B}\le\pi/(2L)\le4\pi/\sqrt k$.
+\end{proof}
+
+\begin{remark}
+Lane $-$ enters only through its phases and its direction of motion, so the same proof works verbatim with $(U_k,V_k^*)$ replaced by any pair unitarily equivalent to it, e.g.\ $\overline{P_k}=(U_k^*,V_k)$. For $k>n$ the roles of the lanes are exchanged and the estimate becomes $13/\sqrt n$; this regime is of no interest for the lower bound.
+\end{remark}
+
+For a pair $(U,V)$ and tolerances $\eta,\varepsilon_0$ write $N'_{\mathrm{pair}}(U,V;\eta,\varepsilon_0)$ for the least $n'$ such that there is $(U',V')\in\U(n')^2$ with $\delta(U',V')\le\varepsilon_0$ and $(U\oplus U',V\oplus V')$ $\eta$-close to a commuting pair; this is Definition~\ref{def:Nprime} for $\Gamma=\Z^2$ and $F$ the generators together with their products.
+
+\begin{corollary}[two-sided bound for Voiculescu's pair]\label{cor:sharp}
+Let $n\ge64$, $0<\eta\le\frac15$, $0<\varepsilon_0\le\frac15$, and suppose $k:=\max\{\lceil169\,\eta^{-2}\rceil,\lceil2\pi/\varepsilon_0\rceil\}\le n$. Then
+\[
+\frac23\max\{\eta^{-2},\,6\,\varepsilon_0^{-1}\}\ \le\ N'_{\mathrm{pair}}(U_n,V_n;\eta,\varepsilon_0)\ \le\ \max\{\lceil169\,\eta^{-2}\rceil,\lceil2\pi\varepsilon_0^{-1}\rceil\}.
+\]
+In particular $N'_{\mathrm{pair}}(U_n,V_n;\eta,\varepsilon_0)\asymp\max\{\eta^{-2},\varepsilon_0^{-1}\}$ with absolute constants, uniformly in $n$, in the range $\eta\gtrsim n^{-1/2}$, $\varepsilon_0\gtrsim n^{-1}$.
+\end{corollary}
+
+\begin{proof}
+The lower bound is Theorem~\ref{thm:lower} with $|\wind|=1$ (note $\delta(U_n,V_n)=2\sin(\pi/n)\le\frac15$ for $n\ge32$). For the upper bound take the complement $(U_k,V_k^*)$: $k\ge169\cdot25>64$, so Theorem~\ref{thm:uturn} applies and gives closeness $13/\sqrt k\le\eta$, while $\delta(U_k,V_k^*)\le2\pi/k\le\varepsilon_0$.
+\end{proof}
+
+\begin{remark}[the case $k=n$ in the literature]
+Loring \cite{Lor88} proved that $U_{n^2}\oplus U_{n^2}$ and $V_{n^2}\oplus V_{n^2}^*$ are within $4\pi/n$ of a commuting pair, i.e.\ a complement of the same dimension $N=n^2$ as the original pair with error $4\pi N^{-1/2}$; this is the case $k=N$ of Theorem~\ref{thm:uturn} with a better constant. Exel--Loring \cite{EL89} gave the elementary winding-number proof of Voiculescu's theorem \cite{Voi83}. What is added here is (i) the complement may be much smaller than the original pair, with the rate $k^{-1/2}$ in the complement dimension, and (ii) by Theorem~\ref{thm:lower} this rate is optimal: no complement of dimension $k$, almost commuting or not, can bring $(U_n,V_n)$ closer than $\sqrt{2/3}\,k^{-1/2}$ to a commuting pair.
+\end{remark}
+
+\section{Consequences for the wreath-product family}\label{sec:wreath}
+
+\begin{theorem}[sharp dimension cost for the model family]\label{thm:wreath}
+Let $\rho_n=\rho_W$ be the model family of Example~\ref{ex:model}, let $F\subset\Gamma$ be finite with $\lamp_0,\lamp_{-1},\lamp_0\lamp_{-1}\in F$, and let $n\ge64$, $0<\eta\le\frac15$, $0<\varepsilon_0\le\frac1{10}$.
+\begin{enumerate}[label=\textup{(\alph*)},leftmargin=2.5em]
+\item $N'(\rho_n;F,\eta,\varepsilon_0)\ \ge\ \dfrac23\,n\,\max\bigl\{\eta^{-2},\,3\,\varepsilon_0^{-1}\bigr\}$.
+\item If $k:=\max\bigl\{\lceil169\,\ell(F)^2\eta^{-2}\rceil,\ \lceil4\pi\,\ell(F)^2\varepsilon_0^{-1}\rceil\bigr\}\le n$, then $N'(\rho_n;F,\eta,\varepsilon_0)\le9(2nk+k^2)\le27\,nk$; the complement is itself a period-nine block family, and the correction is a genuine representation on $\C^9\otimes\C^{(n+k)^2}$.
+\end{enumerate}
+Consequently, in the range $\max\{169\ell(F)^2\eta^{-2},4\pi\ell(F)^2\varepsilon_0^{-1}\}\le n$,
+\[
+N'(\rho_n;F,\eta,\varepsilon_0)\ \asymp_F\ n\max\{\eta^{-2},\varepsilon_0^{-1}\}\ =\ \frac{\sqrt N}{3}\max\{\eta^{-2},\varepsilon_0^{-1}\},\qquad N=9n^2=\dim\rho_n,
+\]
+where the implied constants are absolute multiples of $\ell(F)^2$.
+\end{theorem}
+
+\begin{proof}
+(a) Let $\sigma\colon\Gamma\to\U(n')$ have defect $\le\varepsilon_0$ on $F$ and let $\pi$ be a genuine representation with $\norm{(\rho_n\oplus\sigma)(g)-\pi(g)}\le\eta$ for $g\in F$. Since $\lamp_0\lamp_{-1}=\lamp_{-1}\lamp_0$ in $\Gamma$, the pair $(\pi(\lamp_0),\pi(\lamp_{-1}))$ commutes, and
+\[
+\norm{[\sigma(\lamp_0),\sigma(\lamp_{-1})]}\le\norm{\sigma(\lamp_0)\sigma(\lamp_{-1})-\sigma(\lamp_0\lamp_{-1})}+\norm{\sigma(\lamp_{-1}\lamp_0)-\sigma(\lamp_{-1})\sigma(\lamp_0)}\le2\varepsilon_0\le\tfrac15 .
+\]
+Apply Theorem~\ref{thm:lower} to $(U,V)=(\rho_n(\lamp_0),\rho_n(\lamp_{-1}))\in\U(9n^2)^2$, which has $\delta(U,V)=2\sin(\pi/n)\le\frac15$ and $\wind(U,V)=-n$ (Example~\ref{ex:model}), with $(U',V')=(\sigma(\lamp_0),\sigma(\lamp_{-1}))$: we get $n'\ge\frac23n\eta^{-2}$ and $n'\ge4n/(2\varepsilon_0)$.
+
+(b) Let $(A,B)$ be the commuting pair of Theorem~\ref{thm:uturn} on $\C^{n+k}=\C^n\oplus\C^k$, and consider on $\C^{n+k}\otimes\C^{n+k}$ the two $9$-tuples
+\[
+\begin{aligned}
+\text{(target) }\ &A_0=A\otimes1,\ A_1=B\otimes1,\ A_3=1\otimes A,\ A_5=1\otimes B,\ A_i=1\text{ otherwise;}\\
+\text{(given) }\ &Z_0=(U_n\oplus U_k)\otimes1,\ Z_1=(V_n\oplus V_k^*)\otimes1,\ Z_3=1\otimes(U_n\oplus U_k),\ Z_5=1\otimes(V_n\oplus V_k^*),\ Z_i=1\text{ otherwise.}
+\end{aligned}
+\]
+The $A_i$ commute, $\norm{Z_i-A_i}\le13/\sqrt k$, and the $Z_i$ are block diagonal for $\C^{n+k}\otimes\C^{n+k}=(\C^n\otimes\C^n)\oplus\mathcal K$, $\mathcal K=(\C^n\otimes\C^k)\oplus(\C^k\otimes\C^n)\oplus(\C^k\otimes\C^k)$, with $Z_i|_{\C^n\otimes\C^n}=W_i$. Let $W_i'=Z_i|_{\mathcal K}$, so that $Z_i=W_i\oplus W_i'$ and $\dim\mathcal K=2nk+k^2$. The only non-commuting pairs among the $W'_i$ are Voiculescu-type pairs on a common tensor leg, so $\delta(W')\le\max\{2\sin\frac\pi n,2\sin\frac\pi k\}\le2\pi/k$. Put $\sigma=\rho_{W'}$ and $\pi=\rho_A$; then $\rho_n\oplus\sigma=\rho_{W\oplus W'}$, $\pi$ is a genuine representation, by \eqref{eq:defectF} the defect of $\sigma$ on $F$ is at most $2\ell(F)^2\cdot2\pi/k\le\varepsilon_0$, and by \eqref{eq:closeF} $\norm{(\rho_n\oplus\sigma)(g)-\pi(g)}\le13\,\ell(F)/\sqrt k\le\eta$ for $g\in F$.
+\end{proof}
+
+\begin{remark}[general block families]
+Part (a) used only that the lamp pair $(\lamp_0,\lamp_{-1})$ has winding number of magnitude $n$ and commutator $\le\frac15$; for an arbitrary period-$p$ block family and any $d$ with $\lamp_0,\lamp_{-d},\lamp_0\lamp_{-d}\in F$ one gets
+\[
+N'(\rho_W;F,\eta,\varepsilon_0)\ \ge\ \tfrac23\,\bigl|\wind(\rho_W(\lamp_0),\rho_W(\lamp_{-d}))\bigr|\max\{\eta^{-2},3\varepsilon_0^{-1}\},\qquad \wind(\rho_W(\lamp_0),\rho_W(\lamp_{-d}))=\sum_{i\in\Z/p}\wind(W_i,W_{i+d}).
+\]
+Part (b) used only that each lamp block is a tensor product of Voiculescu pairs and identities on separate legs; it applies to the original nine-block matrices as soon as they have this form, with $9(2nk+k^2)$ replaced by $p\,((n+k)^{r}-n^{r})$ for $r$ tensor legs.
+\end{remark}
+
+\begin{corollary}[negligible overhead, and how fast the error can decay]\label{cor:negligible}
+Fix $F$ and $0<\gamma<1$, and put $k_n=\lfloor n^\gamma\rfloor$. For all large $n$ there is a complement $\sigma_n$ of dimension $9(2nk_n+k_n^2)$ with defect at most $4\pi\ell(F)^2n^{-\gamma}(1+o(1))$ on $F$ such that $\rho_n\oplus\sigma_n$ is $13\,\ell(F)\,n^{-\gamma/2}(1+o(1))$-close on $F$ to a genuine representation on $\C^{9(n+k_n)^2}$, and $9(n+k_n)^2/9n^2\to1$. Conversely, for any sequence of corrections of $\rho_n$ with tolerances $\eta_n\le\frac15$ and complement dimensions $n'_n$,
+\[
+\eta_n\ \ge\ \sqrt{\frac{2n}{3n'_n}}\ ;\qquad\text{in particular } n'_n=o(n^2)\ \Longrightarrow\ \eta_n\sqrt n\to\infty .
+\]
+So a correction with negligible relative overhead exists, but its error cannot be $O(n^{-1/2})=O(N^{-1/4})$.
+\end{corollary}
+
+\begin{proof}
+The first part is Theorem~\ref{thm:wreath}(b) with $k=k_n$ (the hypothesis $k\le n$ holds for large $n$, and the tolerances are read off from the proof). The second is Theorem~\ref{thm:wreath}(a).
+\end{proof}
+
+\begin{remark}
+Fournier-Facio--Willett \cite{FW26} prove very flexible stability for groups whose full group $C^*$-algebra has the local lifting property and is residually finite dimensional, in particular for all amenable residually finite groups, hence for $\Z\wr\Z$. Their theorem guarantees the existence of finite-dimensional enlargements for arbitrary asymptotic representations but gives no bound on their dimension; Theorem~\ref{thm:wreath} is the sharp bound for this one family. Similarly, Corollary~4.1 of the Weinberger--Wu--Yu manuscript (as supplied, 91-page revision) controls finite sets, tolerances and Rips scales without a dimension bound for the stabilising summand; see Section~\ref{sec:further} for the relation between the two kinds of stabilisation.
+\end{remark}
+
+\section{The degree-four problem: $\rho_n\oplus\overline{\rho_n}$}\label{sec:deg4}
+
+\subsection{Characters}
+Let $\overline{\rho_n}$ be the entrywise complex conjugate; it is the period-nine block family with lamp blocks $\overline{W_i}$, where $\overline{U_n}=U_n^*$ and $\overline{V_n}=V_n$, and $\rho_n\oplus\overline{\rho_n}=\rho_{W\oplus\overline W}$ has dimension $18n^2$. By \eqref{eq:tensorch} and the block decomposition of Example~\ref{ex:model}:
+\begin{itemize}[leftmargin=2em]
+\item every lamp pair $(\lamp_0,\lamp_{-d})$ has winding number $0$ (each block of $\rho_n$ contributes $\wind$, and the corresponding block of $\overline{\rho_n}$ contributes $-\wind$);
+\item the lamp $4$-tuple $(\lamp_0,\lamp_{-1},\lamp_{-3},\lamp_{-5})$ has $I_2=1+1=2$: the $i=0$ block is $P_n\otimes P_n\oplus\overline{P_n}\otimes\overline{P_n}$ with $\ch=(n-x_1)(n-x_2)+(n+x_1)(n+x_2)=2n^2+2x_1x_2$.
+\end{itemize}
+Thus all degree-two obstructions cancel and the degree-four one doubles, exactly as in the project description; Theorem~\ref{thm:lower} gives no information, and the lower bound $n\max\{\eta^{-2},\varepsilon_0^{-1}\}$ disappears. The same phenomenon occurs for the smaller family
+\begin{equation}\label{eq:minimal}
+\rho_n'=\rho_{W^{\prime\prime}},\qquad W''\text{ with }i=0\text{ block } P_n\otimes P_n\ \oplus\ \overline{P_n}\otimes1_n\ \oplus\ 1_n\otimes\overline{P_n},\qquad \ch=3n^2+x_1x_2,
+\end{equation}
+of dimension $27n^2$, which has $I_2=1$ and all degree-two characters zero; it is the pull-back to $\Z\wr\Z$ of an almost representation of $\Z^4$ of the type constructed by Dadarlat--Glebe \cite{DG25} (prescribed Chern classes for $\Z^d$; their $\mathbb H_3\times\mathbb H_3$ examples have $c_1=c_2=0\ne c_3$).
+
+\subsection{The compression step, in general}
+
+\begin{lemma}[polar compression for tuples]\label{lem:compression-tuple}
+Let $A_1,\dots,A_d$ be commuting unitaries on $H_1\oplus H_2$ whose off-diagonal blocks have norm $\le\eta<1$, and let $\tilde A_a$ be the polar part of $(A_a)_{22}$. Then $\norm{[\tilde A_a,\tilde A_b]}\le6\eta^2$ for all $a,b$, and $\norm{A_a-(U_a\oplus\tilde A_a)}\le2\eta$ whenever $\norm{(A_a)_{11}-U_a}\le\eta$.
+\end{lemma}
+\begin{proof}
+Lemma~\ref{lem:compression} applied to each pair $(A_a,A_b)$.
+\end{proof}
+
+\begin{hypothesis}[quantitative Chern--Weil bound in degree $2j$]\label{hyp:cw}
+There are constants $C_j,\delta_j>0$ such that for every $m$ and every $T\in\U(m)^{2j}$ with $\delta(T)\le\delta_j$,
+\[
+|I_j(T)|\ \le\ C_j\,m\,\delta(T)^j .
+\]
+\end{hypothesis}
+
+For $j=1$ this is Lemma~\ref{lem:wind}(iii) with $C_1=\frac14$, $\delta_1=2$ (and the sharp form $\frac m\pi\arcsin\frac\delta2$). For $j\ge2$ the expected proof is Chern--Weil: if $E_T$ carries a connection with curvature $\norm{R}_\infty\le C\,\delta(T)$ then
+\[
+|I_j(T)|=\Bigl|\frac{1}{j!}\Bigl(\frac{i}{2\pi}\Bigr)^j\int_{\T^{2j}}\operatorname{tr}(R^{\wedge j})\Bigr|\le\frac{\operatorname{vol}(\T^{2j})}{j!\,(2\pi)^j}\,\rank(E_T)\,\norm{R}_\infty^j=\frac{C^j}{j!}\,m\,\delta(T)^j .
+\]
+The almost-flat-bundle constructions of Connes--Gromov--Moscovici, Dadarlat \cite{Dad12}, Hunger \cite{Hun19} and Kubota \cite{Kub19} build $E_T$ from the transition data $T$ on a fixed cell decomposition of the torus with a fixed partition of unity, so the curvature bound depends only on that auxiliary data, not on $m$ (Kubota's almost monodromy correspondence \cite{Kub19} is stated with constants depending only on the cover). Writing this out for $\T^{2j}$ with an explicit $C=C(j)$, together with explicit thresholds below which $[E_T]$ is defined and locally constant, is the one step we have not carried out; we record the consequence.
+
+\begin{proposition}[conditional degree-$2j$ lower bound]\label{prop:deg4}
+Assume Hypothesis~\ref{hyp:cw} for some $j$, and let $\delta_j',\eta_j'>0$ be thresholds such that $[E_T]$ is defined and locally constant for $\delta(T)\le\delta_j'$ under perturbations of size $\le2\eta_j'$. Let $T\in\U(N)^{2j}$ with $\delta(T)\le\delta_j'$, and suppose that $T\oplus T'$ is $\eta$-close to a commuting $2j$-tuple for some $T'\in\U(n')^{2j}$, where $\eta\le\eta_j'$ and $6\eta^2\le\delta_j$. Then
+\[
+n'\ \ge\ \frac{|I_j(T)|}{C_j\,6^j}\;\eta^{-2j},\qquad\text{and}\qquad n'\ \ge\ \frac{|I_j(T)|}{C_j}\;\varepsilon_0^{-j}\quad\text{if moreover }\delta(T')\le\varepsilon_0\le\min\{\delta_j,\delta_j'\}.
+\]
+\end{proposition}
+
+\begin{proof}
+Identical to Theorem~\ref{thm:lower}, with Lemma~\ref{lem:compression-tuple} in place of Lemma~\ref{lem:compression}, and with the properties of $[E_T]$ listed in Section~\ref{sec:characters} (local constancy, additivity, triviality for commuting tuples) in place of Lemmas~\ref{lem:wind}(i),(ii) and \ref{lem:path}: the polar compression $\tilde T'$ of the commuting tuple satisfies $\delta(\tilde T')\le6\eta^2$ and $I_j(\tilde T')=-I_j(T)$, so Hypothesis~\ref{hyp:cw} gives $|I_j(T)|\le C_jn'(6\eta^2)^j$; the second bound uses $I_j(T')=-I_j(T)$ directly.
+\end{proof}
+
+\begin{corollary}[conditional]\label{cor:deg4}
+Assume Hypothesis~\ref{hyp:cw} for $j=2$. Let $F\ni\lamp_0,\lamp_{-1},\lamp_{-3},\lamp_{-5}$ and their pairwise products. Then for $\eta,\varepsilon_0$ below thresholds depending only on the constants in Hypothesis~\ref{hyp:cw} and for $n\ge n_0$,
+\[
+N'(\rho_n\oplus\overline{\rho_n};F,\eta,\varepsilon_0)\ \ge\ \frac{1}{18\,C_2}\,\eta^{-4}\qquad\text{and}\qquad N'(\rho_n\oplus\overline{\rho_n};F,\eta,\varepsilon_0)\ \ge\ \frac{1}{2\,C_2}\,\varepsilon_0^{-2},
+\]
+\emph{uniformly in $n$}. The same holds for $\rho_n'$ of \eqref{eq:minimal} with the constants halved.
+\end{corollary}
+
+\begin{proof}
+Apply Proposition~\ref{prop:deg4} to the lamp $4$-tuple $T$ of $\rho_n\oplus\overline{\rho_n}$ at positions $(0,-1,-3,-5)$, which has $I_2(T)=2$ and $\delta(T)=2\sin(\pi/n)$, with $T'$ the lamp $4$-tuple of the complement, $\delta(T')\le2\varepsilon_0$, and the commuting tuple given by the correction $\pi$ (lamps commute in $\Gamma$).
+\end{proof}
+
+So, conditionally on the quantitative Chern--Weil estimate, the degree-four obstruction forces $N'\gtrsim\max\{\eta^{-4},\varepsilon_0^{-2}\}$, independent of $n$, as against $N'\asymp n\max\{\eta^{-2},\varepsilon_0^{-1}\}$ for the degree-two obstruction of $\rho_n$. The predicted scale $\max\{\eta^{-4},\varepsilon_0^{-2}\}$ is the one stated in the project description.
+
+\subsection{Upper bounds and the candidate complement}\label{sec:candidate}
+
+\emph{Doubling.} If $\sigma$ is the complement of Theorem~\ref{thm:wreath}(b), then $\sigma\oplus\overline\sigma$ corrects $\rho_n\oplus\overline{\rho_n}$ with the same tolerances, so
+\[
+N'(\rho_n\oplus\overline{\rho_n};F,\eta,\varepsilon_0)\le18(2nk+k^2)\le54\,nk,\qquad k=\max\{\lceil169\ell(F)^2\eta^{-2}\rceil,\lceil4\pi\ell(F)^2\varepsilon_0^{-1}\rceil\},
+\]
+which still grows linearly in $n$. The gap between this and Corollary~\ref{cor:deg4} is the real question.
+
+\emph{The candidate.} Let $Q_k=(U_k,V_k^*)$ (winding $+1$) and consider the $4$-tuple
+\begin{equation}\label{eq:candidate}
+S_k\;=\;Q_k\otimes\overline{Q_k}\ \oplus\ \overline{Q_k}\otimes Q_k\qquad\text{on }\C^{2k^2},
+\end{equation}
+placed as lamp blocks at positions $0,1,3,5$ of a period-nine family $\tau_k=\rho_{S_k}$ of dimension $18k^2$. By \eqref{eq:tensorch},
+\[
+\ch(E_{S_k})=(k+x_1)(k-x_2)+(k-x_1)(k+x_2)=2k^2-2x_1x_2 ,
+\]
+so $S_k$ has all degree-two characters zero, $I_2(S_k)=-2$, and $\delta(S_k)=2\sin(\pi/k)$. Hence $\rho_n\oplus\overline{\rho_n}\oplus\tau_k$ has all characters zero on the relevant lamp patterns, and the bundle over $\T^4$ attached to its lamp $4$-tuple has rank $2n^2+2k^2\ge2$ and vanishing Chern character, hence is trivial (stable range). The analogous candidate for $\rho_n'$ is $Q\otimes\overline Q\oplus\overline Q\otimes1_k\oplus1_k\otimes Q$, with $\ch=3k^2-x_1x_2$.
+
+\begin{question}\label{q:2d}
+Is there an absolute constant $C$ such that for all $n\ge k\ge k_0$ the $4$-tuple
+\[
+\bigl(P_n\otimes P_n\ \oplus\ \overline{P_n}\otimes\overline{P_n}\bigr)\ \oplus\ \bigl(Q_k\otimes\overline{Q_k}\ \oplus\ \overline{Q_k}\otimes Q_k\bigr)\qquad\text{on }\C^{2n^2+2k^2}
+\]
+is $C\,k^{-1/2}$-close to a commuting $4$-tuple?
+\end{question}
+
+A positive answer gives $N'(\rho_n\oplus\overline{\rho_n};F,\eta,\varepsilon_0)\le18k^2$ with $k=\max\{\lceil C^2\ell(F)^2\eta^{-2}\rceil,\lceil4\pi\ell(F)^2\varepsilon_0^{-1}\rceil\}$, i.e.\ $\lesssim_F\max\{\eta^{-4},\varepsilon_0^{-2}\}$, matching Corollary~\ref{cor:deg4}.
+
+\begin{conjecture}\label{conj:deg4}
+For fixed $F$ and all sufficiently small $\eta,\varepsilon_0$,
+\[
+N'(\rho_n\oplus\overline{\rho_n};F,\eta,\varepsilon_0)\ \asymp_F\ \max\{\eta^{-4},\varepsilon_0^{-2}\}\qquad\text{uniformly in }n\ge n_0(F,\eta,\varepsilon_0),
+\]
+and $N'(\rho_n';F,\eta,\varepsilon_0)\asymp_F\max\{\eta^{-4},\varepsilon_0^{-2}\}$ likewise. More generally, a quasi-representation whose only non-vanishing character on a lamp pattern of size $2j$ is $I_j=c$ should have $N'\asymp|c|\max\{\eta^{-2j},\varepsilon_0^{-j}\}$: the degree of the character sets the exponent and its size the prefactor.
+\end{conjecture}
+
+A negative answer to Question~\ref{q:2d} would be at least as interesting: since the $K$-theory bookkeeping is satisfied, the obstruction would have to be analytic rather than topological.
+
+\subsection{Why the U-turn construction does not extend directly}\label{sec:why}
+
+Using $\overline{P_n}\simeq(U_n,V_n^*)$, write $T=P_n\otimes P_n\oplus\overline{P_n}\otimes\overline{P_n}$ on $\C^n\otimes\C^n\otimes\C^2$ (the $\C^2$ labels two \emph{sheets} $\pm$) as
+\[
+T_1=U\otimes1\otimes1,\quad T_3=1\otimes U\otimes1,\qquad T_2=V\otimes1\otimes p_++V^*\otimes1\otimes p_-,\quad T_4=1\otimes V\otimes p_++1\otimes V^*\otimes p_- .
+\]
+The ``positions'' $T_1,T_3$ are the same on both sheets; the ``momenta'' $T_2,T_4$ are reversed on the $-$ sheet \emph{in both directions}. A commuting approximant modelled on Section~\ref{sec:uturn} would take $A_1,A_3$ constant on $M\times M$ blocks of the $n\times n$ grid of phases (error $O(M/n)$) and $B_2,B_4$ commuting unitaries confined to the blocks, equal to $T_2,T_4$ in the interior and performing U-turns in windows of width $L$ along the block boundary (error $O(1/L)$); with $M\asymp L\asymp\sqrt k$ this would give the rate $k^{-1/2}$. In the interior $B_2=T_2$ and $B_4=T_4$ commute because both are diagonal in the sheet index. The difficulty is on the boundary: a U-turn in direction $1$ rotates the sheet index, and this rotation does not commute with $T_4=1\otimes V\otimes p_++1\otimes V^*\otimes p_-$, because the two sheets move in opposite directions in direction $2$ as well. In words: on the $-$ sheet the particle is the ``antiparticle'' with both momenta reversed, so a U-turn in direction $1$ unavoidably reverses the motion in direction $2$. Note that the first-leg pair $(T_1,T_2)=(U\oplus U,V\oplus V^*)\otimes1$ is, by itself, exactly the $k=n$ instance of Theorem~\ref{thm:uturn}, so the obstruction is genuinely in the interaction of the two directions through the shared sheet index. Making the sheet indices independent amounts to passing to $(P\oplus\overline P)\otimes(P\oplus\overline P)$, i.e.\ to the complement $P\otimes\overline P\oplus\overline P\otimes P$ of dimension $2n^2$.
+
+\begin{question}[a two-dimensional Berg lemma]\label{q:berg2d}
+Let $\mathsf T_M$ be the truncated shift on $\C^M$ ($e_j\mapsto e_{j+1}$, $e_{M}\mapsto0$). Do there exist commuting unitaries $B_1,B_2$ on $\C^M\otimes\C^M\otimes\C^2$ (possibly after adding a summand of dimension $O(M)$ supported near the boundary) with
+\[
+\norm{B_1-(\mathsf T_M\otimes1\otimes p_++\mathsf T_M^*\otimes1\otimes p_-)}\le\frac CL,\qquad \norm{B_2-(1\otimes\mathsf T_M\otimes p_++1\otimes\mathsf T_M^*\otimes p_-)}\le\frac CL,
+\]
+which agree with the given operators at distance $>L$ from the boundary of the square? The corresponding statement in one dimension is Construction~\ref{con:uturn}. Pasting such blocks over the $n\times n$ grid, with the complement $S_k$ of \eqref{eq:candidate} used to absorb the boundary summands, is the natural route to Question~\ref{q:2d}; a first experiment is a numerical search for commuting $4$-tuples near $T\oplus S_k$ for small $n,k$.
+\end{question}
+
+\section{Further directions}\label{sec:further}
+
+\subsection{Variable period and prescribed index coordinates}\label{sec:prescribed}
+
+Let $0<d_1<\dots<d_r$ be integers (the two-point patterns $\{0,d_s\}$), $c_1,\dots,c_r\in\Z$ prescribed values, and $p>2d_r$. For each $s$ let $\rho^{(s)}_n$ be the period-$p$ block family with $d=n$ and lamp blocks $W_0=U_n$, $W_{d_s}=V_n$ if $c_s<0$ (resp.\ $V_n^*$ if $c_s>0$), $W_i=1$ otherwise, and put
+\begin{equation}\label{eq:prescribed}
+\rho_n^{(c)}=\bigoplus_{s=1}^r\bigl(\rho^{(s)}_n\bigr)^{\oplus|c_s|},\qquad \dim\rho_n^{(c)}=p\,n\sum_s|c_s| .
+\end{equation}
+The lamp pair $(\lamp_0,\lamp_{-d})$ of $\rho^{(s)}_n$ has blocks $(W_i,W_{i+d})$, which is a non-commuting pair only if $\{i,i+d\}\equiv\{0,d_s\}\pmod p$, i.e.\ $d\equiv\pm d_s\pmod p$; for $0<d\le d_r<p/2$ this forces $d=d_s$. Hence
+\[
+\wind\bigl(\rho_n^{(c)}(\lamp_0),\rho_n^{(c)}(\lamp_{-d_s})\bigr)=c_s\quad(s=1,\dots,r),\qquad \wind\bigl(\rho_n^{(c)}(\lamp_0),\rho_n^{(c)}(\lamp_{-d})\bigr)=0\quad(d\le d_r,\ d\notin\{d_s\}),
+\]
+with defect $2\sin(\pi/n)$ on the generators: any finite collection of two-point patterns can be given prescribed winding numbers, independently, with matrices of size $pn\sum|c_s|$. (Patterns of diameter $\ge p/2$ are then determined by periodicity; enlarging $p$ handles any finite collection.) Since each summand has winding number $\pm1$, Theorems~\ref{thm:lower} and \ref{thm:uturn} give, for $F$ containing the relevant lamps and $n$ large,
+\begin{equation}\label{eq:prescribedcost}
+\frac23\max_s|c_s|\max\{\eta^{-2},3\varepsilon_0^{-1}\}\ \le\ N'(\rho_n^{(c)};F,\eta,\varepsilon_0)\ \le\ p\,k\sum_s|c_s|,\qquad k=\max\{\lceil169\ell(F)^2\eta^{-2}\rceil,\lceil4\pi\ell(F)^2\varepsilon_0^{-1}\rceil\},
+\end{equation}
+the upper bound by correcting each summand separately with a complement $(U_k,V_k^*)$ or $(U_k^*,V_k)$ at the two positions of its pattern. Both bounds are independent of $n$: for these families the dimension cost is governed by the characters alone. Whether the sum $\sum_s|c_s|$ in the upper bound can be replaced by $\max_s|c_s|$ (one complement serving several patterns at once) is open; the obvious attempt, a single $k$-dimensional lane carrying $U_k$ at position $0$ and $V_k^*$ at each position $d_s$, fails because the U-turn windows of different patterns would have to rotate the same lane-$k$ vectors.
+
+Degree-four coordinates are obtained from tensor products as in Example~\ref{ex:model}; by Section~\ref{sec:deg4} they come with degree-two characters of size $n$ unless cancelled by conjugates, and the families $\rho_n\oplus\overline{\rho_n}$ and $\rho'_n$ of \eqref{eq:minimal} are the pure degree-four examples. Note that the characters of $\rho_n^{(c)}$, $\rho_n'$ and $\rho_n\oplus\overline{\rho_n}$ do not depend on $n$, in contrast with those of $\rho_n$ itself; in the inverse-limit picture of Weinberger--Wu--Yu these are the families that define one fixed class as the controls strengthen.
+
+\subsection{Common summands: a trace obstruction}
+
+Weinberger--Wu--Yu stabilise with a \emph{common} summand, $\rho_0\oplus\tau\approx_u\rho_1\oplus\tau$, which preserves the difference of characters; Definition~\ref{def:Nprime} instead adds a summand carrying the opposite character. For the common-summand problem the winding number gives no lower bound, but traces do.
+
+\begin{lemma}[trace obstruction for common summands]\label{lem:trace}
+Let $\rho_0,\rho_1\colon\Gamma\to\U(N)$, let $\tau\colon\Gamma\to\U(m)$, and suppose there is a unitary $\Omega$ with $\norm{\Omega(\rho_0\oplus\tau)(g)\Omega^*-(\rho_1\oplus\tau)(g)}\le\eta$ for all $g\in F$. Then for every $g\in F$,
+\[
+m\ \ge\ \frac{|\Tr\rho_0(g)-\Tr\rho_1(g)|}{\eta}\;-\;N .
+\]
+\end{lemma}
+\begin{proof}
+$|\Tr\rho_0(g)-\Tr\rho_1(g)|=|\Tr(\Omega(\rho_0\oplus\tau)(g)\Omega^*)-\Tr((\rho_1\oplus\tau)(g))|\le(N+m)\eta$.
+\end{proof}
+
+\begin{example}
+Let $\rho_0=(U_n,V_n)$ and $\rho_1=(D,V_n)$ with $D=\operatorname{diag}(e^{i\phi_j})$, where $\phi_0\le\dots\le\phi_{n-1}$ increase from $0$ to $2\pi$ with steps $\le4\pi/n$ and half of the points sit at $\phi=0$. Then $\delta(\rho_1)\le4\pi/n$, $\wind(\rho_1)=-1=\wind(\rho_0)$, $\Tr U_n=0$ and $|\Tr D|\ge n/2-O(1)$, so any common summand realising $\eta$-approximate unitary equivalence on a set containing the first generator has dimension at least $n/(2\eta)-n-O(1)$. The matching upper bound (is $O(n/\eta)$ achievable?) is a concrete test case for rank-controlled stable equivalence; the first non-trivial examples should be taken within the class generated by the explicit blocks under $\oplus$, $\otimes$ and complex conjugation, as suggested in the project description.
+\end{example}
+
+\subsection{Continuous families}
+
+For a continuous family $x\mapsto\rho_x$ (an interval, then a circle) one asks for complements and corrections depending continuously on $x$ with one dimension bound. In Construction~\ref{con:uturn} all choices (window length, turning points) are discrete functions of the phases, so along a family such as $x\mapsto(e^{ix}U_n,V_n)$ the construction is piecewise continuous with jumps where a turning site $\lfloor na/N_b\rfloor$ changes; smoothing the jumps costs an additional error of the order of one window. Over a circle the turning points must return to themselves, which is a monodromy condition. This is the elementary face of the issue that WWY's finite-dimensional/Fredholm comparison (their Theorems 8.14--8.15 and Lemma 9.9, in the supplied revision) handles with compact parameter spaces: a pointwise correction does not automatically respect homotopies, and rank control must be shown to be compatible with them.
+
+\subsection{Group-wide flexible stability of $\Z\wr\Z$}
+
+Corollary~\ref{cor:negligible} is flexible stability with negligible overhead for one family. The group-wide question --- does every asymptotic representation of $\Z\wr\Z$ admit a correction with $n'=o(N)$? --- contains, through the lamp $4$-tuples of $\rho'_n$, the degree-four problem of Section~\ref{sec:deg4}, and through the lamp pairs the question for $\Z^2$ answered by Lubotzky--Salomon \cite{LS26} (who ask in their \S2.4 whether $\Z^3$ is flexibly stable; whether they also ask for linearly bounded enlargement could not be verified from the abstract). The extra difficulty is to keep shift covariance while correcting an arbitrary almost commuting lamp family; in the model this was free because the lamp blocks were built from a single pair. The Hilbert--Schmidt analogue is better understood: Levit--Vigdorovich \cite{LV23} prove Hilbert--Schmidt stability of lamplighter groups via dense periodic measures, and Dogon--Vidick \cite{DV26} give polynomial stability rates for the lamplighter group; the dynamical picture (joint lamp characters on finite shift orbits) is exactly what a genuine finite-dimensional representation of $\Z\wr\Z$ looks like, and the U-turn cycles of Section~\ref{sec:uturn} are its operator-norm shadow. No operator-norm dimension bounds for $\Z\wr\Z$ were found in the sources checked; we treat the group-wide negligible-enlargement statement as a candidate problem requiring a final novelty check.
+
+\subsection{$\Z\wr H$ versus $H\wr\Z$ for a surface group $H$}
+
+Let $H=\pi_1(\Sigma_g)$, $g\ge2$. Any surjection $H\to\Z$ induces $\Z\wr H\to\Z\wr\Z$, and pulling $\rho_n$ back gives quasi-representations of $\Z\wr H$ with the estimates of Theorem~\ref{thm:wreath} (the lower bound only uses two commuting lamps). Classes that detect surface directions beyond a cyclic quotient require new blocks.
+
+For $H\wr\Z$ the situation is different. By Bekka \cite{Bek23}, the Bohr compactification of $\Lambda\wr H$ is that of $\Lambda^{\mathrm{ab}}\wr H$; in particular every finite-dimensional unitary representation of $H\wr\Z$ factors through $H^{\mathrm{ab}}\wr\Z=\Z^{2g}\wr\Z$ and kills every lamp commutator $[h,h']$ (note that $H\wr\Z$ is not residually finite by Gruenberg's theorem \cite{Gru57}, so this is consistent with \cite{FW26}, which needs residual finite-dimensionality).
+
+\begin{proposition}[an obstruction that no enlargement removes]\label{prop:HwrZ}
+Let $M\trianglelefteq H$ be of finite index with $[h,h']\notin M$ for some $h,h'\in H$, let $m\ge1$, and let $\pi_0$ be a faithful unitary representation of the finite group $(H/M)\wr(\Z/m)$ on $\C^D$. For $R<m/4$ let $F_R=\{(f,s)\in H\wr\Z:\operatorname{supp}f\subset[-R,R],\ |s|\le R\}$ and define $\rho(f,s)=\pi_0(\bar f,\bar s)$ for $(f,s)\in F_R\cdot F_R$, where $\bar f$ is $f$ reduced modulo $M$ and positions modulo $m$ (and $\rho=1$ elsewhere). Then $\rho$ is an $(F_R,0)$-quasi-representation, and there is $\kappa=\kappa(\pi_0)>0$ such that for every finite-dimensional $\sigma$, every genuine finite-dimensional unitary representation $\pi$ of $H\wr\Z$, and the lamp commutator $c=[h_0,h'_0]\in F_R$,
+\[
+\norm{(\rho\oplus\sigma)(c)-\pi(c)}\ \ge\ \kappa .
+\]
+In particular $N'(\rho;F_R,\eta,\varepsilon_0)=\infty$ for all $\eta<\kappa$ and all $\varepsilon_0$.
+\end{proposition}
+\begin{proof}
+For $g,h\in F_R$ the lamp support of $gh$ lies in $[-2R,2R]$, which does not wrap around $\Z/m$, so reduction is multiplicative on such products and $\rho(g)\rho(h)=\rho(gh)$. By Bekka's theorem $\pi(c)=1$, while $\rho(c)=\pi_0([\bar h,\bar h'])\ne1$ by faithfulness; let $\kappa=\norm{\rho(c)-1}$, which depends only on $\pi_0$. Then $\norm{(\rho\oplus\sigma)(c)-\pi(c)}\ge\norm{\rho(c)-1}=\kappa$, since the $\rho$-block of $(\rho\oplus\sigma)(c)-1$ has norm $\kappa$.
+\end{proof}
+
+This separates two kinds of obstruction: those that can be cancelled at a measurable dimension cost (Sections~\ref{sec:lower}--\ref{sec:deg4}: the cost is a power of the tolerance set by the degree of the character, times its size), and those that finite-dimensional genuine representations cannot accommodate at all (Proposition~\ref{prop:HwrZ}: the obstruction lives in the kernel of the Bohr compactification, and no complement helps because it is visible on a single block).
+
+\section{Literature check and novelty assessment}\label{sec:lit}
+
+\textbf{Access.} This note was prepared in an environment whose network policy blocked direct access to arxiv.org (and its mirrors), ams.org, nyjm.albany.edu, artsci.tamu.edu, Springer, ScienceDirect, Cambridge Core, Project Euclid, zbMATH, Semantic Scholar, ResearchGate and Google Sites. Only search-engine summaries of the sources were available; every statement attributed to a source below was checked against such a summary and no further. Section, theorem and page numbers quoted from the project description (WWY Corollary 4.1, Theorems 8.14--8.15, Lemma 9.9; Hunger Theorems 5.5, 8.7--8.8; Dadarlat--Glebe Example 8.9; CEKN Theorem 4.14, Example 4.16; Lubotzky--Salomon \S2.4) could not be verified and are repeated as given.
+
+\textbf{What was verified (at abstract level).}
+\begin{itemize}[leftmargin=2em]
+\item \cite{FW26}: ``if $\Gamma$ is LLP and RFD then it is very flexibly stable with respect to the operator norm''; amenable residually finite groups are covered; no dimension bounds are mentioned.
+\item \cite{LS26} (submitted 20 July 2026): $\Z^2$ is flexibly stable in the operator norm; the enlargement is $|\wind(u_n,v_n)|\,m_n$ with $m_n\to\infty$; the main ingredient is the Gong--Lin / Eilers--Loring--Pedersen theorem; \S2.4 asks whether $\Z^3$ is flexibly stable.
+\item \cite{DG25} (28 September 2025): first Chern class of $E_\rho$ computed from $\rho$; Chern character for projective almost multiplicative $\rho$; explicit almost representations of $\Z^d$ with prescribed Chern classes; examples for $\mathbb H_3\times\mathbb H_3$ with $c_1=c_2=0\ne c_3$; for residually finite amenable groups the classes $[E_\rho]$ classify almost representations up to stable equivalence.
+\item \cite{CEKN22} (17 October 2022): $K$-theory of $A^{\otimes G}\rtimes_rG$ for Baum--Connes groups, with a formula for $C^*_r(H\wr G)$; the indexing by orbits of finite subsets with the parity rule is as stated in Section~\ref{sec:model}.
+\item \cite{LV23} (Math.\ Ann., to appear): Hilbert--Schmidt stability of lamplighter groups via dense periodic measures; \cite{DV26} (22 July 2026): polynomial Hilbert--Schmidt stability rates for the lamplighter group.
+\item \cite{Bek23}: $\mathrm{Bohr}(\Lambda\wr H)\cong\mathrm{Bohr}(\Lambda^{\mathrm{ab}}\wr H)$, and likewise for profinite completions.
+\item \cite{Hun19} (NYJM 25 (2019) 687--722): almost flat bundles over simplicial complexes, invariance under $\pi_1$-isomorphisms up to a constant; \cite{Kub19}: almost monodromy correspondence with constants depending only on the cover.
+\item \cite{Yu26}: MATH 662 (Spring 2026), ``Quasi-representations of groups and $K$-theory'': when is a quasi-representation equivalent to a true representation; character theory via $K$-theory; classification; connection with pattern recognition; open problems.
+\item \cite{EL89}: elementary winding-number proof of Voiculescu's theorem \cite{Voi83}; \cite{Lor88}: $U_{n^2}\oplus U_{n^2}$, $V_{n^2}\oplus V^*_{n^2}$ within $4\pi/n$ of commuting unitaries (quoted via a citing paper); \cite{EL91}: the winding number equals the Bott index and is the complete obstruction. \cite{KS16}: distance to normal elements of order $\norm{[A,A^*]}^{1/2}$, optimal; \cite{Has09}: quantitative Lin theorem.
+\item The Weinberger--Wu--Yu manuscript was not located online; it is cited as supplied.
+\end{itemize}
+
+\textbf{Novelty assessment (to be confirmed against full texts).}
+\begin{itemize}[leftmargin=2em]
+\item Lemma~\ref{lem:wind}(iii) is elementary and is likely folklore; we did not find the sharp form $\frac m\pi\arcsin\frac\delta2$ stated.
+\item Lemma~\ref{lem:compression} is elementary. Theorem~\ref{thm:lower}, the quadratic dimension lower bound in the dilation/compression sense, was not found in any accessible summary; the most likely places for a related statement are \cite{LS26} and \cite{Has09}, which must be read in full before claiming it.
+\item Theorem~\ref{thm:uturn} uses the classical Berg technique \cite{Berg71,Dav85,Lor88,EL89}; the quantitative version with a complement of arbitrary size $k\le n$ and rate $k^{-1/2}$, and the resulting two-sided bound (Corollary~\ref{cor:sharp}), were not found.
+\item Theorem~\ref{thm:wreath}, Corollary~\ref{cor:negligible}, Proposition~\ref{prop:deg4} and the formulation of Question~\ref{q:2d} are specific to this project. Lemma~\ref{lem:trace} and Proposition~\ref{prop:HwrZ} are elementary consequences of known results, written down for the record.
+\end{itemize}
+
+\appendix
+\section{Numerical verification}\label{app:num}
+
+The script \texttt{numerics.py} accompanying this note builds the matrices of Construction~\ref{con:uturn} explicitly (window length $L$, $N_b$ turning points, turning sites $\lfloor na/N_b\rfloor$, $\lfloor ka/N_b\rfloor$), computes $A$ as the step function on the cycles of $B$, and checks: $A$, $B$ unitary and exactly commuting (to machine precision); $\norm{X-A}$ and $\norm{Y-B}$; the winding numbers; and Lemma~\ref{lem:compression} on the output. A small grid search over $L\in\{0.2,0.3,0.45\}\sqrt k$ and $N_b\in\{k/1.5(L+1),k/2.5(L+1)\}$ was used. Results (all commutators $\norm{[A,B]}<10^{-15}$):
+\begin{center}
+\begin{tabular}{rrrrrrrr}
+\toprule
+$n$ & $k$ & $L$ & $N_b$ & $\norm{X-A}$ & $\norm{Y-B}$ & $\eta=\max$ & $\eta\sqrt k$\\
+\midrule
+400 & 100 & 4 & 13 & 0.31865 & 0.39018 & 0.39018 & 3.9018\\
+400 & 200 & 6 & 19 & 0.22086 & 0.26105 & 0.26105 & 3.6918\\
+400 & 400 & 9 & 26 & 0.15711 & 0.17431 & 0.17431 & 3.4862\\
+1000 & 100 & 4 & 13 & 0.32424 & 0.39018 & 0.39018 & 3.9018\\
+1000 & 250 & 7 & 20 & 0.21091 & 0.22393 & 0.22393 & 3.5406\\
+1000 & 500 & 10 & 30 & 0.13709 & 0.15692 & 0.15692 & 3.5088\\
+1000 & 1000 & 14 & 44 & 0.09243 & 0.11214 & 0.11214 & 3.5462\\
+2000 & 500 & 10 & 30 & 0.14046 & 0.15692 & 0.15692 & 3.5088\\
+\bottomrule
+\end{tabular}
+\end{center}
+The product $\eta\sqrt k$ settles around $3.5$, against the proved bound $13$ (Theorem~\ref{thm:uturn}) and the lower bound $\sqrt{2/3}\approx0.82$ (Theorem~\ref{thm:lower}). For the polar compression (Lemma~\ref{lem:compression}) on the lane-$-$ corner: for $n=400$, $k=100$: $\norm{[A_{22},B_{22}]}=0.1563$, $\norm{[\tilde A,\tilde B]}=0.1723\le6\eta^2=0.9134$, $\wind(\tilde A,\tilde B)=+1$; $n=1000$, $k=250$: $\norm{[A_{22},B_{22}]}=0.0679$, $\norm{[\tilde A,\tilde B]}=0.0704\le6\eta^2=0.3009$, $\wind(\tilde A,\tilde B)=+1$; $n=1000$, $k=1000$: $\norm{[A_{22},B_{22}]}=0.0158$, $\norm{[\tilde A,\tilde B]}=0.0159\le6\eta^2=0.0755$, $\wind(\tilde A,\tilde B)=+1$. The sharp form of Lemma~\ref{lem:wind}(iii) is confirmed: $\frac m\pi\arcsin\frac{\delta}{2}=1=|\wind(U_m,V_m)|$ exactly, while $m\delta/4\to\pi/2$.
+
+\begin{thebibliography}{99}
+\bibitem[Bek23]{Bek23} B.~Bekka, \emph{On Bohr compactifications and profinite completions of group extensions}, Math.\ Proc.\ Cambridge Philos.\ Soc.; arXiv:2305.04803.
+\bibitem[Ber71]{Berg71} I.~D.~Berg, \emph{An extension of the Weyl--von Neumann theorem to normal operators}, Trans.\ Amer.\ Math.\ Soc.\ 160 (1971), 365--371.
+\bibitem[CEKN22]{CEKN22} S.~Chakraborty, S.~Echterhoff, J.~Kranz, S.~Nishikawa, \emph{$K$-theory of non-commutative Bernoulli shifts}, arXiv:2210.09209.
+\bibitem[Dad14]{Dad12} M.~Dadarlat, \emph{Group quasi-representations and almost flat bundles}, J.\ Noncommut.\ Geom.\ 8 (2014), 163--178.
+\bibitem[DG25]{DG25} M.~Dadarlat, F.~Glebe, \emph{On Chern classes of almost representations}, arXiv:2509.23950.
+\bibitem[Dav85]{Dav85} K.~R.~Davidson, \emph{Almost commuting Hermitian matrices}, Math.\ Scand.\ 56 (1985), 222--240.
+\bibitem[DV26]{DV26} A.~Dogon, T.~Vidick, \emph{Polynomial Hilbert--Schmidt stability of the lamplighter group}, arXiv:2607.20135.
+\bibitem[EL89]{EL89} R.~Exel, T.~A.~Loring, \emph{Almost commuting unitary matrices}, Proc.\ Amer.\ Math.\ Soc.\ 106 (1989), 913--915.
+\bibitem[EL91]{EL91} R.~Exel, T.~A.~Loring, \emph{Invariants of almost commuting unitaries}, J.\ Funct.\ Anal.\ 95 (1991), 364--376.
+\bibitem[FW26]{FW26} F.~Fournier-Facio, R.~Willett, \emph{The local lifting property, property FD, and stability of approximate representations}, arXiv:2603.18456.
+\bibitem[Gru57]{Gru57} K.~W.~Gruenberg, \emph{Residual properties of infinite soluble groups}, Proc.\ London Math.\ Soc.\ (3) 7 (1957), 29--62.
+\bibitem[Has09]{Has09} M.~B.~Hastings, \emph{Making almost commuting matrices commute}, Comm.\ Math.\ Phys.\ 291 (2009), 321--345.
+\bibitem[Hun19]{Hun19} B.~Hunger, \emph{Almost flat bundles and homological invariance of infinite $K$-area}, New York J.\ Math.\ 25 (2019), 687--722.
+\bibitem[KS16]{KS16} I.~Kachkovskiy, Y.~Safarov, \emph{Distance to normal elements in $C^*$-algebras of real rank zero}, J.\ Amer.\ Math.\ Soc.\ 29 (2016), 61--80.
+\bibitem[Kub19]{Kub19} Y.~Kubota, \emph{Almost flat relative vector bundles and the almost monodromy correspondence}, arXiv:1908.10575.
+\bibitem[Lor88]{Lor88} T.~A.~Loring, \emph{$K$-theory and asymptotically commuting matrices}, Canad.\ J.\ Math.\ 40 (1988), 197--216.
+\bibitem[LS26]{LS26} A.~Lubotzky, G.~Salomon, \emph{$\Z^2$ is flexibly stable in the operator norm}, arXiv:2607.17578.
+\bibitem[LV23]{LV23} A.~Levit, I.~Vigdorovich, \emph{Characters of solvable groups, Hilbert--Schmidt stability and dense periodic measures}, Math.\ Ann., to appear; arXiv:2206.02268.
+\bibitem[Voi83]{Voi83} D.~Voiculescu, \emph{Asymptotically commuting finite rank unitary operators without commuting approximants}, Acta Sci.\ Math.\ (Szeged) 45 (1983), 429--431.
+\bibitem[WWY]{WWY} S.~Weinberger, Wu, G.~Yu, manuscript on quasi-representations of groups (91-page revision, as supplied; not located online).
+\bibitem[Yu26]{Yu26} G.~Yu, \emph{MATH 662: Quasi-representations of groups and $K$-theory}, course outline, Texas A\&M University, Spring 2026.
+\end{thebibliography}
+
+\end{document}
