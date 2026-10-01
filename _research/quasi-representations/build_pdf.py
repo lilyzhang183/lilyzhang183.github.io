@@ -91,9 +91,15 @@ def postprocess_typ(s):
 
     # 4. equation references -> "(n)"; typst numbers every display equation "$ ... $" in order
     eqnums = {}
-    for i, m in enumerate(re.finditer(r'\$ (?:[^$]|\\\$)*? \$(<[^>]+>)?', s)):
-        if m.group(1):
-            eqnums[m.group(1)[1:-1]] = str(i + 1)
+    dollars = [m.start() for m in re.finditer(r'(?<!\\)\$', s)]
+    count = 0
+    for a, b in zip(dollars[0::2], dollars[1::2]):          # pair opening/closing dollars in order
+        inner = s[a + 1:b]
+        if inner.startswith(' ') and inner.endswith(' '):    # pandoc writes display math as "$ ... $"
+            count += 1
+            m = re.match(r'<([^>]+)>', s[b + 1:])
+            if m:
+                eqnums[m.group(1)] = str(count)
 
     def eqref(m):
         lab = m.group(1)
