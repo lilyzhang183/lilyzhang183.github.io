@@ -18,6 +18,8 @@ Sometimes they overlap.
 
 #### Papers in progress
 
+*Group quasi-representations and stability*, in preparation.
+
 *Explicit representatives for K-theory classes of Roe and localization algebras of Euclidean spaces*, in preparation.
 
 *Normal quotients and basic cohomology of blow-ups of proper Lie groupoids*, in preparation.
