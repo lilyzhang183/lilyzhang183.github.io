@@ -177,6 +177,7 @@ exclude:
   - package-lock.json
   - purgecss.config.js
   - vendor
+  - assets/main.pdf # CV PDF hidden from the site; remove this line to publish it again
 keep_files:
   - CNAME
   - .nojekyll
