@@ -16,6 +16,7 @@ Sometimes they overlap.
 
 *A generalization of Molino's theory to Riemannian groupoids*, [arXiv:2609.23341](https://arxiv.org/abs/2609.23341) (2026).
 
+{% comment %}
 #### Papers in progress
 
 *Group quasi-representations and stability*, in preparation.
@@ -25,6 +26,7 @@ Sometimes they overlap.
 *Normal quotients and basic cohomology of blow-ups of proper Lie groupoids*, in preparation.
 
 *Linear holonomy and linearization of singular foliations*, in preparation.
+{% endcomment %}
 
 #### Master's thesis
 
